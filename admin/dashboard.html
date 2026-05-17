@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MotoShowroom Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script
+        id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { background: '#131313', surface: '#131313', surfaceContainerLow: '#1c1b1b', surfaceVariant: '#353534', primary: '#ffb3ac', primaryContainer: '#ff544e', onSurface: '#e5e2e1', onSurfaceVariant: '#cfcfcf', onPrimaryContainer: '#5c0006', secondary: '#e6c364', tertiary: '#75d1fd', outline: '#ad8884' }, borderRadius: { DEFAULT: '0.25rem', lg: '0.5rem', xl: '0.75rem', '2xl': '1rem', '3xl': '1.25rem', full: '9999px' }, spacing: { marginMobile: '20px', marginDesktop: '80px', sectionGap: '120px', gutter: '24px', containerMax: '1440px' }, fontFamily: { headline: ['Inter'], body: ['Inter'], mono: ['JetBrains Mono'] }, fontSize: { headlineMd: ['32px', { lineHeight: '40px', fontWeight: '700' }], headlineLg: ['48px', { lineHeight: '56px', fontWeight: '800' }], bodyLg: ['18px', { lineHeight: '28px' }], bodyMd: ['16px', { lineHeight: '24px' }], specLabel: ['14px', { lineHeight: '20px', letterSpacing: '0.05em', fontWeight: '500' }], specValue: ['18px', { lineHeight: '24px', fontWeight: '700' }] } } }}</script>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@500;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body class="bg-background text-onSurface selection:bg-primary selection:text-onPrimaryContainer overflow-x-hidden">
+    <div class="min-h-screen">
+        <aside
+            class="fixed left-0 top-0 h-screen w-[240px] bg-surfaceContainerLow border-r border-surfaceVariant py-6 px-4 flex flex-col">
+            <div class="mb-8"><a class="font-headline text-headlineMd font-bold text-primary"
+                    href="../index.html">United Auto Motorsports</a>
+                <p class="mt-2 text-specLabel text-onSurfaceVariant">Admin Portal</p>
+            </div>
+            <nav class="flex-1 space-y-2"><a
+                        class="flex items-center gap-3 py-3 px-3 bg-primary/10 border-r-4 border-primary rounded-r-full text-primary font-bold"
+                    href="dashboard.html"><span class="material-symbols-outlined">dashboard</span><span
+                            class="text-specLabel">Dashboard</span></a><a
+                    class="flex items-center gap-3 py-3 px-3 text-onSurfaceVariant hover:text-onSurface hover:bg-surfaceVariant rounded-r-full"
+                    href="manage-bikes.html"><span class="material-symbols-outlined">motorcycle</span><span
+                            class="text-specLabel">Bikes</span></a><a
+                    class="flex items-center gap-3 py-3 px-3 text-onSurfaceVariant hover:text-onSurface hover:bg-surfaceVariant rounded-r-full"
+                    href="add-bike.html"><span class="material-symbols-outlined">add_circle</span><span
+                            class="text-specLabel">Add New Bike</span></a><a
+                        class="flex items-center gap-3 py-3 px-3 text-onSurfaceVariant hover:text-onSurface hover:bg-surfaceVariant rounded-r-full"
+                        href="bookings.html"><span class="material-symbols-outlined">event_available</span><span
+                            class="text-specLabel">Bookings</span></a></nav>
+            <div class="mt-auto pt-6 border-t border-surfaceVariant"><a
+                            class="w-full block py-3 px-4 rounded-2xl border border-surfaceVariant text-primary text-specLabel text-center hover:bg-surfaceVariant"
+                            href="../index.html">View Live Site</a></div>
+        </aside>
+        <main class="ml-[240px] p-10 space-y-10">
+            <header class="flex flex-col md:flex-row justify-between gap-4 items-start md:items-center">
+                <div>
+                    <h1 class="font-headline text-headlineMd text-onSurface">Dashboard</h1>
+                    <p class="text-specLabel text-onSurfaceVariant mt-2">Overview of inventory, bookings, and
+                        performance signals.</p>
+                </div>
+                <div class="flex items-center gap-4"><button
+                        class="p-3 rounded-2xl bg-surfaceContainerLow border border-surfaceVariant text-onSurfaceVariant"><span
+                            class="material-symbols-outlined">notifications</span></button>
+                    <div class="flex items-center gap-3 text-onSurfaceVariant"><span
+                            class="material-symbols-outlined">account_circle</span>
+                        <div>
+                            <p class="text-specLabel">Haris Khan</p>
+                            <p class="text-[12px]">Super Admin</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+                <article class="bg-surfaceContainerLow rounded-3xl border border-surfaceVariant p-6 card-glow">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="bg-surfaceVariant rounded-2xl p-3 text-primary"><span
+                                class="material-symbols-outlined">motorcycle</span></div><span
+                            class="text-specLabel text-primary">+4% <span
+                                class="material-symbols-outlined text-[14px] align-middle">trending_up</span></span>
+                    </div>
+                    <p class="text-specLabel text-onSurfaceVariant uppercase mb-2">Total Bikes</p>
+                    <h2 class="font-headline text-headlineMd">108</h2>
+                </article>
+                <article class="bg-surfaceContainerLow rounded-3xl border border-surfaceVariant p-6 card-glow">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="bg-surfaceVariant rounded-2xl p-3 text-tertiary"><span
+                                class="material-symbols-outlined">event_available</span></div><span
+                            class="text-specLabel text-tertiary">+12% <span
+                                class="material-symbols-outlined text-[14px] align-middle">trending_up</span></span>
+                    </div>
+                    <p class="text-specLabel text-onSurfaceVariant uppercase mb-2">Active Bookings</p>
+                    <h2 class="font-headline text-headlineMd">23</h2>
+                </article>
+                <article class="bg-surfaceContainerLow rounded-3xl border border-surfaceVariant p-6 card-glow">
+                    <div class="flex items-center justify-between mb-5">
+                            <div class="bg-surfaceVariant rounded-2xl p-3 text-primary"><span
+                                class="material-symbols-outlined">pending_actions</span></div><span
+                            class="text-specLabel text-onSurfaceVariant">Urgent</span>
+                    </div>
+                    <p class="text-specLabel text-onSurfaceVariant uppercase mb-2">Pending Approvals</p>
+                    <h2 class="font-headline text-headlineMd">7</h2>
+                </article>
+                <article class="bg-surfaceContainerLow rounded-3xl border border-surfaceVariant p-6 card-glow">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="bg-surfaceVariant rounded-2xl p-3 text-secondary"><span
+                                class="material-symbols-outlined">forum</span></div><span
+                            class="text-specLabel text-secondary">Stable</span>
+                    </div>
+                    <p class="text-specLabel text-onSurfaceVariant uppercase mb-2">Inquiries</p>
+                    <h2 class="font-headline text-headlineMd">156</h2>
+                </article>
+            </div>
+            <section class="grid gap-6 lg:grid-cols-[1.9fr_1fr]">
+                <article class="bg-surfaceContainerLow rounded-3xl border border-surfaceVariant overflow-hidden">
+                    <div class="p-6 border-b border-surfaceVariant flex items-center justify-between">
+                        <div>
+                            <h2 class="font-headline text-headlineMd">Recent Bookings</h2>
+                            <p class="text-specLabel text-onSurfaceVariant mt-1">Latest reservation activity</p>
+                        </div><button class="text-primary font-bold hover:underline">View All</button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full text-left text-specLabel">
+                            <thead class="bg-surfaceVariant text-onSurfaceVariant uppercase text-[12px] tracking-wider">
+                                <tr>
+                                    <th class="px-6 py-4">ID</th>
+                                    <th class="px-6 py-4">Customer</th>
+                                    <th class="px-6 py-4">Bike</th>
+                                    <th class="px-6 py-4">Date</th>
+                                    <th class="px-6 py-4">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-surfaceVariant">
+                                <tr>
+                                    <td class="px-6 py-4">#B012</td>
+                                    <td class="px-6 py-4">Ali Raza</td>
+                                    <td class="px-6 py-4">Panigale V4 S</td>
+                                    <td class="px-6 py-4">May 13</td>
+                                    <td class="px-6 py-4"><span
+                                            class="bg-green-900/30 text-green-300 px-3 py-1 rounded-full text-[12px]">Confirmed</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4">#B009</td>
+                                    <td class="px-6 py-4">Sara Khan</td>
+                                    <td class="px-6 py-4">Ninja ZX-10R</td>
+                                    <td class="px-6 py-4">May 10</td>
+                                    <td class="px-6 py-4"><span
+                                            class="bg-yellow-900/30 text-yellow-300 px-3 py-1 rounded-full text-[12px]">Pending</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4">#B005</td>
+                                    <td class="px-6 py-4">Omar Abbas</td>
+                                    <td class="px-6 py-4">V4 Replica</td>
+                                    <td class="px-6 py-4">May 06</td>
+                                    <td class="px-6 py-4"><span
+                                            class="bg-red-900/30 text-red-300 px-3 py-1 rounded-full text-[12px]">Needs
+                                            Review</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+                <article class="bg-surfaceContainerLow rounded-3xl border border-surfaceVariant p-6 space-y-6">
+                    <div>
+                        <h2 class="font-headline text-headlineMd">Quick Actions</h2>
+                        <p class="text-specLabel text-onSurfaceVariant mt-2">Access management modules quickly.</p>
+                    </div>
+                    <div class="grid gap-4"><a
+                            class="block rounded-3xl border border-surfaceVariant p-5 hover:border-primary transition"
+                            href="add-bike.html"><span class="font-headline text-headlineMd text-primary">Add
+                                Bike</span>
+                            <p class="text-onSurfaceVariant mt-2">Create a new inventory listing.</p>
+                        </a><a
+                            class="block rounded-3xl border border-surfaceVariant p-5 hover:border-primary transition"
+                            href="manage-bikes.html"><span class="font-headline text-headlineMd text-primary">Manage
+                                Bikes</span>
+                            <p class="text-onSurfaceVariant mt-2">Edit inventory, stock, and pricing.</p>
+                        </a><a
+                            class="block rounded-3xl border border-surfaceVariant p-5 hover:border-primary transition"
+                            href="bookings.html"><span
+                                class="font-headline text-headlineMd text-primary">Bookings</span>
+                            <p class="text-onSurfaceVariant mt-2">Review customer reservations.</p>
+                        </a></div>
+                </article>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        .glow-red {
+            box-shadow: 0 0 24px rgba(232, 39, 45, 0.15);
+        }
+        .glow-red-hover:hover {
+            box-shadow: 0 0 32px rgba(232, 39, 45, 0.35);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#131313",
+                        "on-tertiary-fixed-variant": "#004d66",
+                        "surface-container-low": "#1c1b1b",
+                        "on-surface-variant": "#e6bdb9",
+                        "surface-variant": "#353534",
+                        "primary-fixed": "#ffdad6",
+                        "on-tertiary-container": "#002e3e",
+                        "on-primary": "#680008",
+                        "surface-bright": "#3a3939",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary-container": "#369bc4",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary": "#003547",
+                        "outline": "#ad8884",
+                        "secondary-container": "#785d00",
+                        "surface-dim": "#131313",
+                        "secondary-fixed": "#ffe08f",
+                        "tertiary-fixed": "#c0e8ff",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "tertiary-fixed-dim": "#75d1fd",
+                        "on-tertiary-fixed": "#001e2b",
+                        "error": "#ffb4ab",
+                        "on-secondary-container": "#fdd977",
+                        "surface-container-lowest": "#0e0e0e",
+                        "outline-variant": "#5d3f3c",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#930010",
+                        "surface-container": "#201f1f",
+                        "surface": "#131313",
+                        "on-secondary": "#3d2e00",
+                        "on-secondary-fixed": "#241a00",
+                        "on-primary-fixed": "#410003",
+                        "surface-tint": "#ffb3ac",
+                        "on-error": "#690005",
+                        "on-surface": "#e5e2e1",
+                        "secondary-fixed-dim": "#e6c364",
+                        "inverse-primary": "#c00018",
+                        "primary-container": "#ff544e",
+                        "on-error-container": "#ffdad6",
+                        "inverse-on-surface": "#313030",
+                        "surface-container-high": "#2a2a2a",
+                        "secondary": "#e6c364",
+                        "surface-container-highest": "#353534",
+                        "on-secondary-fixed-variant": "#584400",
+                        "tertiary": "#75d1fd",
+                        "primary": "#ffb3ac",
+                        "on-primary-container": "#5c0006"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "80px",
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "spec-label": ["JetBrains Mono"],
+                        "spec-value": ["JetBrains Mono"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "display-xl": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "spec-label": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "spec-value": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-surface-variant shadow-[0_0_20px_rgba(232,39,45,0.15)]">
+<div class="flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto">
+<div class="font-headline-lg text-headline-lg font-black text-primary tracking-tighter">United AutoMotorsports</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-on-surface hover:text-primary transition-colors duration-300 font-spec-label text-spec-label" href="index.html">Home</a>
+<a class="text-on-surface hover:text-primary transition-colors duration-300 font-spec-label text-spec-label" href="catalog.html">Catalog</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-spec-label text-spec-label" href="about.html">About</a>
+<a class="text-on-surface hover:text-primary transition-colors duration-300 font-spec-label text-spec-label" href="contact.html">Contact</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container-high px-4 py-2 rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md ml-2 w-40 text-on-surface" placeholder="Search models..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary px-8 py-3 font-bold hover:scale-105 hover:shadow-[0_0_24px_rgba(232,39,45,0.35)] transition-all active:scale-95 duration-150">
+                    Book a Bike
+                </button>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="h-[400px] flex flex-col items-center justify-center text-center px-margin-mobile relative overflow-hidden">
+<div class="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,_rgba(232,39,45,0.1)_0%,_transparent_70%)]"></div>
+<h1 class="relative z-10 font-display-xl text-display-xl text-on-surface max-w-4xl mx-auto mb-4">
+                Pakistan's Premier <span class="text-primary">Motorcycle</span> Experience
+            </h1>
+<p class="relative z-10 font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Redefining precision engineering and aggressive luxury for the modern rider.
+            </p>
+</section>
+<!-- Story Section -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-section-gap items-center">
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+<img class="relative w-full aspect-[4/5] object-cover rounded-lg border border-outline-variant grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl" data-alt="A close-up architectural shot of a high-end luxury motorcycle showroom in Pakistan at night. The sleek interior features polished dark basalt floors, minimalist glass partitions, and spotlighting that hits the chrome and carbon fiber of several premium bikes. The mood is sophisticated and exclusive, with a deep black and vibrant red color palette that feels aggressive yet luxurious." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz53vAU0RlEhA1ogJ-UJGrs-OGWY0BhGO-PB6YCbgbFzhpnF0BD6hcOFNw2rtoKka2mOFuTC_dygOU3Z-RHqA6IbMtBoBNXZYVDO_qz0u_7ZdheS05a6oeYmOOOuQDolKRzcwQ6gYM1gCxGJbn8CVJZHpnKUNdAofXGhyTRl2lrOvNQAPtHzBT7zdFcph3GxO6ZLtTBSi8EtS8dGXMCI1gC9e0BYOgIKvHXd113FhgD5mXiQhleU8Y7JB2xJylO1itJ1TgZyXi-0E"/>
+</div>
+<div class="space-y-8">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">The Legacy of <span class="text-primary italic">Speed</span></h2>
+<div class="space-y-6 font-body-lg text-on-surface-variant leading-relaxed">
+<p>Founded in 2018, MotoShowroom emerged from a singular obsession: to bring the world's most elite motorcycles to the roads of Pakistan. We aren't just a dealership; we are a temple for those who worship the machine.</p>
+<p>Our journey began in a small workshop in Karachi, where we curated rare parts for collectors. Today, we stand as the exclusive gateway for aggressive performance brands, offering an experience that mirrors the visceral power of the engines we sell.</p>
+<div class="pt-4 border-l-4 border-primary pl-6">
+<span class="font-spec-label text-spec-label text-primary block mb-1">FOUNDER'S NOTE</span>
+<p class="italic text-on-surface font-medium">"We don't sell transport. We sell the thrill of the redline and the art of mechanical perfection."</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Mission/Values Section -->
+<section class="py-section-gap bg-surface-container-lowest px-margin-desktop">
+<div class="max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Quality -->
+<div class="bg-surface-container-low p-10 border border-outline-variant hover:border-primary transition-all duration-300 group">
+<span class="material-symbols-outlined text-primary text-5xl mb-6 group-hover:scale-110 transition-transform block" data-icon="verified">verified</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Precision Quality</h3>
+<p class="font-body-md text-on-surface-variant">Every bike in our showroom undergoes a 120-point diagnostic check before it hits the floor. No compromises, no shortcuts.</p>
+</div>
+<!-- Trust -->
+<div class="bg-surface-container-low p-10 border border-outline-variant hover:border-primary transition-all duration-300 group">
+<span class="material-symbols-outlined text-primary text-5xl mb-6 group-hover:scale-110 transition-transform block" data-icon="handshake">handshake</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Unyielding Trust</h3>
+<p class="font-body-md text-on-surface-variant">Transparency is our torque. We provide full history reports and transparent pricing on every single performance machine.</p>
+</div>
+<!-- Passion -->
+<div class="bg-surface-container-low p-10 border border-outline-variant hover:border-primary transition-all duration-300 group">
+<span class="material-symbols-outlined text-primary text-5xl mb-6 group-hover:scale-110 transition-transform block" data-icon="speed">speed</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Raw Passion</h3>
+<p class="font-body-md text-on-surface-variant">Built by enthusiasts, for enthusiasts. We organize weekend track days and mountain rallies to keep the spirit alive.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us: 6-point icon list -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Why Choose <span class="text-primary">The Showroom</span></h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-gutter">
+<div class="flex items-start gap-5">
+<div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary" data-icon="inventory_2">inventory_2</span>
+</div>
+<div>
+<h4 class="font-spec-value text-spec-value text-on-surface mb-2">Curated Inventory</h4>
+<p class="font-body-md text-on-surface-variant">Access to exclusive limited-edition models and rare imports not found anywhere else in Pakistan.</p>
+</div>
+</div>
+<div class="flex items-start gap-5">
+<div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary" data-icon="settings_b_roll">settings_b_roll</span>
+</div>
+<div>
+<h4 class="font-spec-value text-spec-value text-on-surface mb-2">Genuine Parts</h4>
+<p class="font-body-md text-on-surface-variant">Direct sourcing from manufacturers ensures every bolt and fairing is 100% original performance-grade.</p>
+</div>
+</div>
+<div class="flex items-start gap-5">
+<div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary" data-icon="payments">payments</span>
+</div>
+<div>
+<h4 class="font-spec-value text-spec-value text-on-surface mb-2">Financing Solutions</h4>
+<p class="font-body-md text-on-surface-variant">Flexible bespoke financing plans tailored for collectors and high-net-worth enthusiasts.</p>
+</div>
+</div>
+<div class="flex items-start gap-5">
+<div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary" data-icon="engineering">engineering</span>
+</div>
+<div>
+<h4 class="font-spec-value text-spec-value text-on-surface mb-2">Master Technicians</h4>
+<p class="font-body-md text-on-surface-variant">Our service bay is staffed by engineers trained in Italy and Japan, specialized in high-performance tuning.</p>
+</div>
+</div>
+<div class="flex items-start gap-5">
+<div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary" data-icon="distance">distance</span>
+</div>
+<div>
+<h4 class="font-spec-value text-spec-value text-on-surface mb-2">Doorstep Delivery</h4>
+<p class="font-body-md text-on-surface-variant">White-glove enclosed transport delivery to any city in Pakistan, ensuring your bike arrives in pristine condition.</p>
+</div>
+</div>
+<div class="flex items-start gap-5">
+<div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary" data-icon="groups">groups</span>
+</div>
+<div>
+<h4 class="font-spec-value text-spec-value text-on-surface mb-2">Exclusive Community</h4>
+<p class="font-body-md text-on-surface-variant">Membership to our private riders' club with access to VIP lounge events and international tours.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Team Section -->
+<section class="py-section-gap px-margin-desktop bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-16">
+<div>
+<span class="font-spec-label text-spec-label text-primary tracking-widest uppercase mb-2 block">Our Crew</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Meet the Engineers of <span class="text-primary">Motion</span></h2>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Team Member 1 -->
+<div class="group relative bg-surface-container overflow-hidden rounded-lg border border-outline-variant hover:border-primary transition-all">
+<img class="w-full aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A professional portrait of a male automotive engineer in a sleek black leather jacket, standing in front of a blurred futuristic motorcycle engine. The lighting is dramatic and moody, with sharp highlights and deep shadows that emphasize his serious expression. The color scheme is dominated by dark tones with a slight red ambient glow, fitting an aggressive luxury brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXKUZYvwVIaW4DKxms5OQoOt8jKQNH9_BxM9dRfDwaSTLbdFZcFeIIJnD9kQ_7qql1OaiR6PN_3TAKm3yiy_6B4Ek6jDWtowTKK88PlNG6d28ymK2LWi6LLnWf-F25ADrDTcS_ZjM3Aq2PqoHaWimMiNXcI0N8ZYzdAgoMwT_kwkOyZhobxgnDA5t3qVNHA24Q2P-uF6vyr3EiE6qDpcvMKuak0DAIX7HJ7QT2GKPA3RdXM33xrsZ2bjyDMNQCXlGVPT6OzrcxwbQ"/>
+<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background to-transparent translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<h4 class="font-spec-value text-spec-value text-on-surface">Hassan Ali</h4>
+<p class="font-spec-label text-spec-label text-on-surface-variant mb-4 uppercase tracking-tighter">Managing Director</p>
+<a class="inline-flex items-center text-primary hover:underline font-spec-label text-sm" href="#">
+                                LINKEDIN <span class="material-symbols-outlined text-sm ml-1" data-icon="north_east">north_east</span>
+</a>
+</div>
+</div>
+<!-- Team Member 2 -->
+<div class="group relative bg-surface-container overflow-hidden rounded-lg border border-outline-variant hover:border-primary transition-all">
+<img class="w-full aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A portrait of a confident female operations manager in a high-tech industrial office. She is wearing a modern professional charcoal grey blazer. Behind her, large windows overlook a high-end motorcycle assembly floor bathed in cool blue and sharp red accent lighting. The image style is cinematic, high-contrast, and exudes leadership and mechanical precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfwu2s80o_sLDvRwjQhh6saY7H2lhWfspf0O3o0f9Sqe5gSREHrHseSchQdgNUkphvgSyNYOjVuzxjhSLpwfjnGa5MkFagVnj6aIStUvLop2ahK1v3BHPExTnZHllCsKbL4a9q0zj4MC6-x0WJSzASsQnF-V5owG52d3am_BoUzo-sKJMEo1QB9G5mBZoTdu4Oh_C7juJHCq2xkbwwT2UmCTkosU_jCtQJ2eYEF9VlrHScIE25WFADnY6ZbH_1LUIiv4MCeGz88S8"/>
+<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background to-transparent translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<h4 class="font-spec-value text-spec-value text-on-surface">Zainab Khan</h4>
+<p class="font-spec-label text-spec-label text-on-surface-variant mb-4 uppercase tracking-tighter">Operations Head</p>
+<a class="inline-flex items-center text-primary hover:underline font-spec-label text-sm" href="#">
+                                LINKEDIN <span class="material-symbols-outlined text-sm ml-1" data-icon="north_east">north_east</span>
+</a>
+</div>
+</div>
+<!-- Team Member 3 -->
+<div class="group relative bg-surface-container overflow-hidden rounded-lg border border-outline-variant hover:border-primary transition-all">
+<img class="w-full aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A portrait of a senior motorcycle technician wearing dark mechanic coveralls with a subtle red embroidered logo. He is holding a digital torque wrench, standing in a dimly lit, high-precision service bay with glowing red LED strips. The atmosphere is technical and focused, with clean lines and high-end automotive equipment visible in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsiNTNuANynWWPeKbdzQO9Mrc5Rb59DVkfOs7y8424tbCzEf4Z6YNiytXZyOW-VwSqZHz4usiVk334pSfo9APL86W-r3Bo5-0rT7peGcCtoO1aNkir9tQ8xXf6Aj7bND8hPdpzTrBU-GEKtICO5P8Ft-_UCIKfDh8IZyhH3wtGnoSmFmozMPYC4oUzPObzkA2ySsxv_uiHAAYx5E6zABnB-n3XQuDP6HKvKUKxWVCfFDn8jzH2XjJ9Ie_TTtiTz5DV2bGS1h0uLRg"/>
+<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background to-transparent translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<h4 class="font-spec-value text-spec-value text-on-surface">Omar Farooq</h4>
+<p class="font-spec-label text-spec-label text-on-surface-variant mb-4 uppercase tracking-tighter">Lead Technician</p>
+<a class="inline-flex items-center text-primary hover:underline font-spec-label text-sm" href="#">
+                                LINKEDIN <span class="material-symbols-outlined text-sm ml-1" data-icon="north_east">north_east</span>
+</a>
+</div>
+</div>
+<!-- Team Member 4 -->
+<div class="group relative bg-surface-container overflow-hidden rounded-lg border border-outline-variant hover:border-primary transition-all">
+<img class="w-full aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A cinematic portrait of a female sales executive in a dark, luxury automotive setting. She is leaning against a sleek carbon fiber table. The background features a dramatic low-light view of a premium motorcycle showroom with sharp directional lighting. The color palette is near-black with intense red accents, emphasizing aggressive luxury and professional confidence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtwxnnNDdvuAptyf05FarqJmSKdwYiLQhYZN40TPkCDwILh1swDYCrKFj1JGbNVGcl-qZkJFe1PDSNCl0Zr-E98V0isJkRe_Wpd_MvQmFAV-tDPy7y9k67NAB3I-WuzKLYKnrNRuunVAOaNKsGYjzS2j3ghXIWsyhraljLiJETyzASZziSevolE-NYYx7ECFkCRcvfZcwkrknKA6carkGs5RcUPfztFVtMvHdxoiIo-Z9NQ_2MIHYdfZDgjkcco8vISsE8qP-9VzY"/>
+<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background to-transparent translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<h4 class="font-spec-value text-spec-value text-on-surface">Sara Ahmed</h4>
+<p class="font-spec-label text-spec-label text-on-surface-variant mb-4 uppercase tracking-tighter">Client Relations</p>
+<a class="inline-flex items-center text-primary hover:underline font-spec-label text-sm" href="#">
+                                LINKEDIN <span class="material-symbols-outlined text-sm ml-1" data-icon="north_east">north_east</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Location Section -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-stretch">
+<div class="lg:col-span-8 h-[500px] bg-surface-container-high rounded-lg overflow-hidden border border-outline-variant relative group">
+<img class="w-full h-full object-cover grayscale opacity-50 group-hover:opacity-80 transition-opacity duration-700" data-location="Karachi" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGhuViSO4Z_RkmBQpUlgQSkxFNrNBXfNc5cTzZkw2DsKySbnWjGxlzxor7dc3XJhW5yTUt644RC_hUisS_TO38USX6FibEbQbYxqdaeocOLRCM-myfTGOWZacg7HBu5EUugHpvSXTdZtclaET3OQp_yJugV9fdhqr8qxkZqCME-53fV1LZN4a14FIEeJb0Jfy0s5HuON-qW5FteFM_aB5SND7ritzEuneOOXPBJye4v_H_mZt4c2c14GP2kvd9uSnb9sI9TLx-f8Y"/>
+<div class="absolute inset-0 bg-gradient-to-tr from-background via-transparent to-transparent"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center animate-pulse">
+<span class="material-symbols-outlined text-on-primary text-3xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 bg-surface-container p-10 flex flex-col justify-center border border-outline-variant glow-red">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6">Visit Our <span class="text-primary">Flagship</span></h3>
+<div class="space-y-8">
+<div>
+<span class="font-spec-label text-spec-label text-primary mb-2 block">ADDRESS</span>
+<p class="font-body-lg text-on-surface">Plot 45-C, Lane 2, Phase VI, DHA, Karachi, Pakistan</p>
+</div>
+<div>
+<span class="font-spec-label text-spec-label text-primary mb-2 block">CONTACT</span>
+<p class="font-body-lg text-on-surface">+92 (21) 3456 7890</p>
+<p class="font-body-lg text-on-surface">experience@motoshowroom.pk</p>
+</div>
+<div>
+<span class="font-spec-label text-spec-label text-primary mb-2 block">HOURS</span>
+<div class="grid grid-cols-2 gap-2 font-spec-value text-sm">
+<span class="text-on-surface-variant">Mon - Sat</span>
+<span class="text-on-surface">10:00 - 20:00</span>
+<span class="text-on-surface-variant">Sunday</span>
+<span class="text-on-surface text-primary">By Appointment</span>
+</div>
+</div>
+</div>
+<button class="mt-10 bg-on-surface text-background px-8 py-4 font-bold hover:bg-white transition-all">
+                        Get Directions
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap px-margin-desktop bg-surface-container-low border-t border-surface-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto">
+<div class="md:col-span-1">
+<div class="font-headline-lg text-headline-lg font-black text-primary mb-6">MotoShowroom</div>
+<p class="font-body-md text-on-surface-variant mb-8">Pakistan's destination for high-performance motorcycles and professional engineering service.</p>
+<div class="flex gap-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">photo_camera</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">brand_family</span></a>
+</div>
+</div>
+<div class="space-y-4">
+<h5 class="font-spec-label text-spec-label text-on-surface uppercase tracking-widest mb-4">Categories</h5>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-primary font-body-md transition-colors" href="#">Cruisers</a></li>
+<li><a class="text-on-surface-variant hover:text-primary font-body-md transition-colors" href="#">Sport</a></li>
+<li><a class="text-on-surface-variant hover:text-primary font-body-md transition-colors" href="#">Adventure</a></li>
+<li><a class="text-on-surface-variant hover:text-primary font-body-md transition-colors" href="#">Touring</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="font-spec-label text-spec-label text-on-surface uppercase tracking-widest mb-4">Company</h5>
+<ul class="space-y-2">
+<li><a class="text-primary font-body-md" href="#">About Us</a></li>
+<li><a class="text-on-surface-variant hover:text-primary font-body-md transition-colors" href="#">Our Team</a></li>
+<li><a class="text-on-surface-variant hover:text-primary font-body-md transition-colors" href="#">Testimonials</a></li>
+<li><a class="text-on-surface-variant hover:text-primary font-body-md transition-colors" href="#">Careers</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="font-spec-label text-spec-label text-on-surface uppercase tracking-widest mb-4">Newsletter</h5>
+<p class="font-body-md text-on-surface-variant mb-4">Get notified about new drops and track events.</p>
+<div class="flex gap-2">
+<input class="bg-surface-container-high border-none p-3 w-full text-on-surface focus:ring-1 focus:ring-primary" placeholder="Email Address" type="email"/>
+<button class="bg-primary text-on-primary px-4"><span class="material-symbols-outlined">send</span></button>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto mt-20 pt-8 border-t border-surface-variant flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-spec-label text-spec-label text-on-surface-variant opacity-60">© 2024 MotoShowroom Pakistan. Built for Precision.</p>
+<div class="flex gap-8">
+<a class="font-spec-label text-spec-label text-on-surface-variant hover:text-primary" href="#">Privacy Policy</a>
+<a class="font-spec-label text-spec-label text-on-surface-variant hover:text-primary" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</body></html>

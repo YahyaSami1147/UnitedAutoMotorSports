@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#131313",
+                        "on-tertiary-fixed-variant": "#004d66",
+                        "surface-container-low": "#1c1b1b",
+                        "on-surface-variant": "#e6bdb9",
+                        "surface-variant": "#353534",
+                        "primary-fixed": "#ffdad6",
+                        "on-tertiary-container": "#002e3e",
+                        "on-primary": "#680008",
+                        "surface-bright": "#3a3939",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary-container": "#369bc4",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary": "#003547",
+                        "outline": "#ad8884",
+                        "secondary-container": "#785d00",
+                        "surface-dim": "#131313",
+                        "secondary-fixed": "#ffe08f",
+                        "tertiary-fixed": "#c0e8ff",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "tertiary-fixed-dim": "#75d1fd",
+                        "on-tertiary-fixed": "#001e2b",
+                        "error": "#ffb4ab",
+                        "on-secondary-container": "#fdd977",
+                        "surface-container-lowest": "#0e0e0e",
+                        "outline-variant": "#5d3f3c",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#930010",
+                        "surface-container": "#201f1f",
+                        "surface": "#131313",
+                        "on-secondary": "#3d2e00",
+                        "on-secondary-fixed": "#241a00",
+                        "on-primary-fixed": "#410003",
+                        "surface-tint": "#ffb3ac",
+                        "on-error": "#690005",
+                        "on-surface": "#e5e2e1",
+                        "secondary-fixed-dim": "#e6c364",
+                        "inverse-primary": "#c00018",
+                        "primary-container": "#ff544e",
+                        "on-error-container": "#ffdad6",
+                        "inverse-on-surface": "#313030",
+                        "surface-container-high": "#2a2a2a",
+                        "secondary": "#e6c364",
+                        "surface-container-highest": "#353534",
+                        "on-secondary-fixed-variant": "#584400",
+                        "tertiary": "#75d1fd",
+                        "primary": "#ffb3ac",
+                        "on-primary-container": "#5c0006"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "80px",
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "spec-label": ["JetBrains Mono"],
+                        "spec-value": ["JetBrains Mono"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "display-xl": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "spec-label": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "spec-value": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>.glow-red {
+    box-shadow: 0 0 24px rgba(232, 39, 45, 0.35)
+    }
+.glow-red-hover:hover {
+    box-shadow: 0 0 32px rgba(232, 39, 45, 0.5);
+    transform: translatey(-2px)
+    }
+.bg-noise {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDVMK-mcXQeaBM5T-5sXehsCrSaBKy-NZuWjkPqrEu6SrG0XJd9_dQ4q3CIGbXJD4g7ggg8bt4gVPaPb7Bt0XzP-Y1_SveEzasbCTntxOMKBSbBdNISeyH_YvEzoJOCPtXym9TZ2DvNrHlb1LRuehf4uIBojnCSjxsafs26dB6dVl0aaz9tnQutIu7SOMIHsI74sbshxfkfix24CKIyRn2O3GZSYDcRWo9jbkLDBNWTlawTSLECJDHxbLji4bahbuV5i5QXU-N9Olw);
+    opacity: 0.03;
+    pointer-events: none;
+    position: absolute;
+    inset: 0
+    }</style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-surface-variant shadow-[0_0_20px_rgba(232,39,45,0.15)]">
+<div class="flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto">
+<a class="font-headline-lg text-headline-lg font-black text-primary tracking-tighter" href="index.html">United AutoMotorsports</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface hover:text-primary transition-colors duration-300 font-spec-label text-spec-label" href="index.html">Home</a>
+<a class="text-on-surface hover:text-primary transition-colors duration-300 font-spec-label text-spec-label" href="catalog.html">Catalog</a>
+<a class="text-on-surface hover:text-primary transition-colors duration-300 font-spec-label text-spec-label" href="about.html">About</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-spec-label text-spec-label" href="contact.html">Contact</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="bg-primary text-on-primary font-bold px-6 py-3 rounded hover:scale-105 hover:shadow-[0_0_24px_rgba(232,39,45,0.35)] transition-all active:scale-95 duration-150">
+                    Book a Bike
+                </button>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-section-gap relative">
+<div class="bg-noise"></div>
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<!-- Hero Title -->
+<div class="mb-20 text-center md:text-left">
+<h1 class="font-display-xl text-display-xl text-on-surface mb-4">Get in <span class="text-primary">Touch.</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Connect with our specialists for bespoke consultations, technical support, or to schedule a private showroom viewing.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Form -->
+<div class="lg:col-span-7 bg-surface-container-low p-10 rounded-xl border border-surface-variant/50 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-5">
+<span class="material-symbols-outlined text-[120px]">send</span>
+</div>
+<form class="space-y-8 relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-spec-label text-spec-label text-on-surface-variant uppercase">Full Name</label>
+<input class="w-full bg-surface-container-lowest border border-surface-variant rounded-lg p-4 focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none text-on-surface" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-spec-label text-spec-label text-on-surface-variant uppercase">Phone Number</label>
+<input class="w-full bg-surface-container-lowest border border-surface-variant rounded-lg p-4 focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none text-on-surface" placeholder="+92 300 0000000" type="tel"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-spec-label text-spec-label text-on-surface-variant uppercase">Email Address</label>
+<input class="w-full bg-surface-container-lowest border border-surface-variant rounded-lg p-4 focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none text-on-surface" placeholder="john@example.com" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="font-spec-label text-spec-label text-on-surface-variant uppercase">Subject</label>
+<select class="w-full bg-surface-container-lowest border border-surface-variant rounded-lg p-4 focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none text-on-surface appearance-none">
+<option>Sales Inquiry</option>
+<option>Service Booking</option>
+<option>Spare Parts</option>
+<option>Media &amp; PR</option>
+</select>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-spec-label text-spec-label text-on-surface-variant uppercase">Message</label>
+<textarea class="w-full bg-surface-container-lowest border border-surface-variant rounded-lg p-4 focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none text-on-surface resize-none" placeholder="Tell us about your requirements..." rows="5"></textarea>
+</div>
+<button class="w-full md:w-auto bg-primary text-on-primary font-bold px-12 py-5 rounded-lg glow-red glow-red-hover transition-all flex items-center justify-center gap-3" type="submit">
+                            Send Message
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</form>
+</div>
+<!-- Right Column: Info Cards -->
+<div class="lg:col-span-5 space-y-6">
+<!-- Address Card -->
+<div class="bg-surface-container-high border border-surface-variant p-8 rounded-xl hover:translate-y-[-4px] transition-transform group">
+<div class="flex items-start gap-6">
+<div class="w-14 h-14 rounded-lg bg-surface-variant flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">location_on</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-2">Showroom</h3>
+<p class="text-on-surface-variant font-body-md mb-4">Plot 24, Main Korangi Road, DHA Phase 2, Karachi, Pakistan</p>
+<a class="text-primary font-spec-label text-spec-label flex items-center gap-2 hover:underline" href="#">
+                                    View on Maps <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+<!-- WhatsApp Card -->
+<div class="bg-surface-container-high border border-surface-variant p-8 rounded-xl hover:translate-y-[-4px] transition-transform group">
+<div class="flex items-start gap-6">
+<div class="w-14 h-14 rounded-lg bg-surface-variant flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">chat</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-2">WhatsApp</h3>
+<p class="text-on-surface-variant font-body-md mb-4">Our advisors are online Mon-Sat for instant assistance.</p>
+<a class="inline-flex items-center gap-2 bg-[#25D366] text-black px-6 py-2 rounded-full font-bold hover:opacity-90 transition-opacity" href="https://wa.me/923000000000">
+                                    Chat Now
+                                </a>
+</div>
+</div>
+</div>
+<!-- Hours Card -->
+<div class="bg-surface-container-high border border-surface-variant p-8 rounded-xl hover:translate-y-[-4px] transition-transform group">
+<div class="flex items-start gap-6">
+<div class="w-14 h-14 rounded-lg bg-surface-variant flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">schedule</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline-md text-headline-md mb-4">Opening Hours</h3>
+<div class="space-y-3">
+<div class="flex justify-between border-b border-surface-variant/30 pb-2">
+<span class="font-spec-label text-spec-label text-on-surface-variant">Mon - Thu</span>
+<span class="font-spec-value text-spec-value text-primary">10:00 AM - 08:00 PM</span>
+</div>
+<div class="flex justify-between border-b border-surface-variant/30 pb-2">
+<span class="font-spec-label text-spec-label text-on-surface-variant">Friday</span>
+<span class="font-spec-value text-spec-value text-primary">02:00 PM - 09:00 PM</span>
+</div>
+<div class="flex justify-between">
+<span class="font-spec-label text-spec-label text-on-surface-variant">Saturday</span>
+<span class="font-spec-value text-spec-value text-primary">11:00 AM - 07:00 PM</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Full Width Map Placeholder -->
+<div class="mt-section-gap w-full h-[600px] relative border-y border-surface-variant grayscale hover:grayscale-0 transition-all duration-700 cursor-crosshair group overflow-hidden">
+<div class="absolute inset-0 bg-background/20 z-10 pointer-events-none group-hover:bg-transparent transition-colors"></div>
+<img class="w-full h-full object-cover" data-alt="A cinematic, high-contrast satellite view of a modern urban street layout at night, with street lights creating a network of glowing orange lines against deep black asphalt. The composition emphasizes a futuristic and architectural aesthetic, with sharp geometric lines and a dark, luxury mood that mirrors the dealership's aggressive visual identity. Subtle red accents are visible in the distance as car taillights, maintaining brand cohesion." data-location="Karachi" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMh40QJL7FqpXd2cKzT5DMi7IPx1oo1G0rr6sUAAg9Al6J2SvzhAOjeAqslntJ1ZjNsoVaWuAzCCQuzCc9MJTPKbjjkI8S2R3UcuD2uIVcY1sfdpQF956lJOIgmIqmYTv_PsiFczshCXQ0GjbOAk7CmEtM6x_mqG7o_cvAmxqSvjIjcl5G2JnSfwpw1cNpXrPNeBSv_TdTdHmVyLIbBDN-f5cHkuvKpERjLCAV-Mc7YFlqWtwNbQ-qvFuWcAft_EdGcwhf5jXT-jk"/>
+<div class="absolute bottom-12 left-12 z-20 bg-background/90 backdrop-blur-md p-8 border border-primary/30 rounded-lg shadow-2xl">
+<span class="font-spec-label text-spec-label text-primary uppercase block mb-2 tracking-widest">Main Headquarters</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">MotoShowroom Elite</h4>
+<p class="text-on-surface-variant mt-2 font-body-md">Precision. Performance. Power.</p>
+<div class="mt-6 flex gap-4">
+<button class="bg-primary text-on-primary px-4 py-2 text-sm font-bold rounded">Get Directions</button>
+<button class="border border-surface-variant text-on-surface px-4 py-2 text-sm font-bold rounded">Call Showroom</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low w-full py-section-gap px-margin-desktop border-t border-surface-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1">
+<span class="font-headline-lg text-headline-lg font-black text-primary block mb-6">MotoShowroom</span>
+<p class="text-on-surface-variant font-body-md mb-6 leading-relaxed">
+                    Redefining the luxury motorcycle experience in Pakistan since 2024. Engineering excellence meets unbridled power.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">alternate_email</span>
+</a>
+</div>
+</div>
+<div>
+<h5 class="font-spec-label text-spec-label text-primary uppercase mb-6 tracking-widest">Inventory</h5>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md" href="#">Cruisers</a></li>
+<li><a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md" href="#">Sport</a></li>
+<li><a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md" href="#">Adventure</a></li>
+<li><a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md" href="#">Touring</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-spec-label text-spec-label text-primary uppercase mb-6 tracking-widest">Connect</h5>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md" href="#">Contact Us</a></li>
+<li><a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md" href="#">Book a Service</a></li>
+<li><a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md" href="#">Newsletter</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-spec-label text-spec-label text-primary uppercase mb-6 tracking-widest">Newsletter</h5>
+<p class="text-on-surface-variant font-body-md mb-6">Subscribe for exclusive preview of new arrivals.</p>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-surface-variant rounded-lg p-4 focus:border-primary outline-none text-on-surface pr-12" placeholder="Email Address" type="email"/>
+<button class="absolute right-2 top-2 bottom-2 bg-primary text-on-primary px-4 rounded-md">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto mt-20 pt-8 border-t border-surface-variant/30 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-on-surface-variant font-spec-label text-spec-label">© 2024 MotoShowroom Pakistan. Built for Precision.</p>
+<div class="flex gap-8">
+<a class="text-on-surface-variant hover:text-primary font-spec-label text-spec-label" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary font-spec-label text-spec-label" href="#">Terms of Sale</a>
+</div>
+</div>
+</footer>
+</body></html>

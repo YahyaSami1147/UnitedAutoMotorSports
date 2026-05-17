@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MotoShowroom Admin Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #131313;
+            background-image: radial-gradient(circle at 50% 50%, #1c1c1c 0%, #131313 100%);
+        }
+        .glow-red {
+            box-shadow: 0 0 24px rgba(232, 39, 45, 0.35);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "background": "#131313",
+                      "on-tertiary-fixed-variant": "#004d66",
+                      "surface-container-low": "#1c1b1b",
+                      "on-surface-variant": "#e6bdb9",
+                      "surface-variant": "#353534",
+                      "primary-fixed": "#ffdad6",
+                      "on-tertiary-container": "#002e3e",
+                      "on-primary": "#680008",
+                      "surface-bright": "#3a3939",
+                      "inverse-surface": "#e5e2e1",
+                      "tertiary-container": "#369bc4",
+                      "on-background": "#e5e2e1",
+                      "on-tertiary": "#003547",
+                      "outline": "#ad8884",
+                      "secondary-container": "#785d00",
+                      "surface-dim": "#131313",
+                      "secondary-fixed": "#ffe08f",
+                      "tertiary-fixed": "#c0e8ff",
+                      "primary-fixed-dim": "#ffb3ac",
+                      "tertiary-fixed-dim": "#75d1fd",
+                      "on-tertiary-fixed": "#001e2b",
+                      "error": "#ffb4ab",
+                      "on-secondary-container": "#fdd977",
+                      "surface-container-lowest": "#0e0e0e",
+                      "outline-variant": "#5d3f3c",
+                      "error-container": "#93000a",
+                      "on-primary-fixed-variant": "#930010",
+                      "surface-container": "#201f1f",
+                      "surface": "#131313",
+                      "on-secondary": "#3d2e00",
+                      "on-secondary-fixed": "#241a00",
+                      "on-primary-fixed": "#410003",
+                      "surface-tint": "#ffb3ac",
+                      "on-error": "#690005",
+                      "on-surface": "#e5e2e1",
+                      "secondary-fixed-dim": "#e6c364",
+                      "inverse-primary": "#c00018",
+                      "primary-container": "#ff544e",
+                      "on-error-container": "#ffdad6",
+                      "inverse-on-surface": "#313030",
+                      "surface-container-high": "#2a2a2a",
+                      "secondary": "#e6c364",
+                      "surface-container-highest": "#353534",
+                      "on-secondary-fixed-variant": "#584400",
+                      "tertiary": "#75d1fd",
+                      "primary": "#ffb3ac",
+                      "on-primary-container": "#5c0006"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "margin-desktop": "80px",
+                      "section-gap": "120px",
+                      "gutter": "24px",
+                      "container-max": "1440px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "display-xl": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "body-md": ["Inter"],
+                      "spec-label": ["JetBrains Mono"],
+                      "spec-value": ["JetBrains Mono"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "display-xl": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                      "headline-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "spec-label": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "spec-value": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6 bg-background text-on-surface">
+<!-- Background Ambience (Non-Blocking) -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+<div class="absolute -top-[20%] -right-[10%] w-[60%] h-[60%] bg-primary/5 rounded-full blur-[120px]"></div>
+<div class="absolute -bottom-[20%] -left-[10%] w-[50%] h-[50%] bg-primary/5 rounded-full blur-[120px]"></div>
+</div>
+<!-- Login Container -->
+<main class="w-full max-w-[400px] animate-fade-in">
+<!-- Identity Branding (Center Aligned for Focus) -->
+<div class="text-center mb-10">
+<h1 class="font-headline-lg text-headline-lg font-black text-primary tracking-tighter mb-2">United AutoMotorsports</h1>
+<p class="font-spec-label text-spec-label uppercase tracking-widest text-on-surface-variant">Admin Portal</p>
+</div>
+<!-- Login Card -->
+<div class="bg-surface-container-lowest border-t-[3px] border-primary shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-lg overflow-hidden">
+<div class="p-8">
+<header class="mb-8">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Sign In</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Sign in to manage your showroom</p>
+</header>
+<!-- Error State (Red alert error box) -->
+<div class="mb-6 p-4 bg-error-container border-l-4 border-error flex items-start gap-3">
+<span class="material-symbols-outlined text-on-error-container" data-icon="report">report</span>
+<p class="font-body-md text-body-md text-on-error-container">Invalid credentials. Please verify your email and password.</p>
+</div>
+<form class="space-y-6">
+<!-- Email Field -->
+<div class="space-y-2">
+<label class="font-spec-label text-spec-label text-on-surface-variant uppercase" for="email">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="alternate_email">alternate_email</span>
+<input class="w-full h-14 bg-surface-container border border-outline-variant focus:border-primary focus:ring-0 text-on-surface font-spec-value text-spec-value px-12 transition-all outline-none rounded-none" id="email" placeholder="admin@motoshowroom.com" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<label class="font-spec-label text-spec-label text-on-surface-variant uppercase" for="password">Password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="lock">lock</span>
+<input class="w-full h-14 bg-surface-container border border-outline-variant focus:border-primary focus:ring-0 text-on-surface font-spec-value text-spec-value px-12 transition-all outline-none rounded-none" id="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<!-- Options -->
+<div class="flex items-center justify-between">
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="relative flex items-center">
+<input class="peer appearance-none w-5 h-5 border border-outline-variant bg-surface-container checked:bg-primary checked:border-primary transition-all rounded-none" type="checkbox"/>
+<span class="material-symbols-outlined absolute inset-0 text-white opacity-0 peer-checked:opacity-100 flex items-center justify-center text-[16px]" data-icon="check">check</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant group-hover:text-on-surface transition-colors">Remember me</span>
+</label>
+<a class="font-spec-label text-spec-label text-primary hover:underline underline-offset-4" href="#">Forgot Password?</a>
+</div>
+<!-- Sign In Button -->
+<button class="w-full h-16 bg-primary text-on-primary font-bold font-spec-value text-spec-value uppercase tracking-widest glow-red hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3" type="submit">
+<span>Sign In</span>
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+</div>
+<!-- Decorative Footer in Card -->
+<div class="p-6 bg-surface-container-low border-t border-outline-variant flex justify-center">
+<p class="font-spec-label text-spec-label text-outline uppercase tracking-tight">System Version 4.2.0-Production</p>
+</div>
+</div>
+<!-- External Link -->
+<div class="mt-8 text-center">
+<a class="inline-flex items-center gap-2 font-spec-label text-spec-label text-on-surface-variant hover:text-primary transition-colors group" href="/">
+<span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform" data-icon="keyboard_backspace">keyboard_backspace</span>
+<span>Return to Live Showroom</span>
+</a>
+</div>
+</main>
+</body></html>

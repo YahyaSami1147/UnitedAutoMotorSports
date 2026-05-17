@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MotoShowroom Admin | Bookings Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for admin panels */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #1c1b1b; }
+        ::-webkit-scrollbar-thumb { background: #353534; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ffb3ac; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#131313",
+                        "on-tertiary-fixed-variant": "#004d66",
+                        "surface-container-low": "#1c1b1b",
+                        "on-surface-variant": "#e6bdb9",
+                        "surface-variant": "#353534",
+                        "primary-fixed": "#ffdad6",
+                        "on-tertiary-container": "#002e3e",
+                        "on-primary": "#680008",
+                        "surface-bright": "#3a3939",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary-container": "#369bc4",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary": "#003547",
+                        "outline": "#ad8884",
+                        "secondary-container": "#785d00",
+                        "surface-dim": "#131313",
+                        "secondary-fixed": "#ffe08f",
+                        "tertiary-fixed": "#c0e8ff",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "tertiary-fixed-dim": "#75d1fd",
+                        "on-tertiary-fixed": "#001e2b",
+                        "error": "#ffb4ab",
+                        "on-secondary-container": "#fdd977",
+                        "surface-container-lowest": "#0e0e0e",
+                        "outline-variant": "#5d3f3c",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#930010",
+                        "surface-container": "#201f1f",
+                        "surface": "#131313",
+                        "on-secondary": "#3d2e00",
+                        "on-secondary-fixed": "#241a00",
+                        "on-primary-fixed": "#410003",
+                        "surface-tint": "#ffb3ac",
+                        "on-error": "#690005",
+                        "on-surface": "#e5e2e1",
+                        "secondary-fixed-dim": "#e6c364",
+                        "inverse-primary": "#c00018",
+                        "primary-container": "#ff544e",
+                        "on-error-container": "#ffdad6",
+                        "inverse-on-surface": "#313030",
+                        "surface-container-high": "#2a2a2a",
+                        "secondary": "#e6c364",
+                        "surface-container-highest": "#353534",
+                        "on-secondary-fixed-variant": "#584400",
+                        "tertiary": "#75d1fd",
+                        "primary": "#ffb3ac",
+                        "on-primary-container": "#5c0006"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "80px",
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "body-md": ["Inter"],
+                        "spec-label": ["JetBrains Mono"],
+                        "spec-value": ["JetBrains Mono"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "display-xl": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "spec-label": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "spec-value": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface antialiased overflow-x-hidden">
+<!-- Admin SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-[240px] bg-surface-container-lowest border-r border-outline-variant flex flex-col py-6 px-4 gap-4 z-40">
+<div class="mb-6 px-2">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">United AutoMotorsports</h1>
+<p class="font-spec-label text-spec-label text-on-surface-variant">Admin Portal</p>
+</div>
+<nav class="flex flex-col gap-1 flex-grow">
+<a class="flex items-center gap-3 py-3 px-4 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-variant transition-all font-spec-label text-spec-label" href="dashboard.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-variant transition-all font-spec-label text-spec-label" href="manage-bikes.html">
+<span class="material-symbols-outlined">motorcycle</span>
+<span>Bikes</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-variant transition-all font-spec-label text-spec-label" href="add-bike.html">
+<span class="material-symbols-outlined">add_circle</span>
+<span>Add New Bike</span>
+</a>
+<!-- Active State for Bookings -->
+<a class="flex items-center gap-3 py-3 px-4 rounded-lg text-primary border-r-4 border-primary bg-primary/10 font-bold font-spec-label text-spec-label translate-x-1 duration-200" href="bookings.html">
+<span class="material-symbols-outlined">event_available</span>
+<span>Bookings</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-variant transition-all font-spec-label text-spec-label mt-auto" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-4 pt-4 border-t border-outline-variant">
+<a class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-surface-variant text-on-surface font-spec-label text-spec-label hover:bg-surface-container-high transition-colors" href="../index.html"><span class="material-symbols-outlined">open_in_new</span><span>View Live Site</span></a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-[240px] p-10 min-h-screen">
+<!-- Header -->
+<header class="flex justify-between items-end mb-10">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Bookings Management</h2>
+<p class="text-on-surface-variant font-body-md text-body-md mt-2">Oversee test-ride requests and customer acquisitions.</p>
+</div>
+<div class="flex gap-4">
+<button class="bg-surface-container-high border border-outline-variant px-6 py-3 flex items-center gap-2 font-spec-label text-spec-label text-on-surface hover:bg-surface-variant transition-all">
+<span class="material-symbols-outlined">download</span>
+                    Export CSV
+                </button>
+<button class="bg-primary text-on-primary px-6 py-3 font-spec-label text-spec-label font-bold shadow-[0_0_20px_rgba(232,39,45,0.2)] hover:scale-105 transition-all">
+                    Create Manual Entry
+                </button>
+</div>
+</header>
+<!-- Stats Strip: Aggressive Luxury Style -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-section-gap">
+<div class="bg-surface-container-low p-6 border-l-4 border-primary">
+<p class="font-spec-label text-spec-label text-on-surface-variant mb-1">Total Bookings</p>
+<h3 class="font-display-xl text-[40px] text-on-surface leading-none">1,248</h3>
+<p class="text-primary font-spec-label text-[12px] mt-2">+12% vs last month</p>
+</div>
+<div class="bg-surface-container-low p-6 border-l-4 border-secondary">
+<p class="font-spec-label text-spec-label text-on-surface-variant mb-1">Pending Review</p>
+<h3 class="font-display-xl text-[40px] text-on-surface leading-none">42</h3>
+<p class="text-secondary font-spec-label text-[12px] mt-2">Requires Action</p>
+</div>
+<div class="bg-surface-container-low p-6 border-l-4 border-tertiary">
+<p class="font-spec-label text-spec-label text-on-surface-variant mb-1">Confirmed Sessions</p>
+<h3 class="font-display-xl text-[40px] text-on-surface leading-none">892</h3>
+<p class="text-tertiary font-spec-label text-[12px] mt-2">Ready for Showroom</p>
+</div>
+<div class="bg-surface-container-low p-6 border-l-4 border-outline-variant">
+<p class="font-spec-label text-spec-label text-on-surface-variant mb-1">Cancelled</p>
+<h3 class="font-display-xl text-[40px] text-on-surface leading-none">14</h3>
+<p class="text-on-surface-variant font-spec-label text-[12px] mt-2">Loss Prevention Applied</p>
+</div>
+</section>
+<!-- Filter & Table Container -->
+<div class="bg-surface-container-lowest border border-outline-variant">
+<!-- Filter Tabs -->
+<div class="flex border-b border-outline-variant">
+<button class="px-8 py-5 text-primary border-b-2 border-primary font-bold font-spec-label text-spec-label bg-primary/5 transition-all">All Bookings</button>
+<button class="px-8 py-5 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant transition-all font-spec-label text-spec-label">Pending</button>
+<button class="px-8 py-5 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant transition-all font-spec-label text-spec-label">Confirmed</button>
+<button class="px-8 py-5 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant transition-all font-spec-label text-spec-label">Completed</button>
+<button class="px-8 py-5 text-on-surface-variant hover:text-on-surface hover:bg-surface-variant transition-all font-spec-label text-spec-label">Cancelled</button>
+<div class="ml-auto px-6 py-4 flex items-center">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="bg-background border border-outline-variant pl-10 pr-4 py-2 text-spec-label font-spec-label focus:border-primary focus:ring-0 w-64 transition-all" placeholder="Search customer or bike..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container text-on-surface-variant font-spec-label text-spec-label uppercase tracking-wider border-b border-outline-variant">
+<tr>
+<th class="py-4 px-6 font-medium"># ID</th>
+<th class="py-4 px-6 font-medium">Customer</th>
+<th class="py-4 px-6 font-medium">Contact Details</th>
+<th class="py-4 px-6 font-medium">Motorcycle</th>
+<th class="py-4 px-6 font-medium">Preferred Date</th>
+<th class="py-4 px-6 font-medium">Status</th>
+<th class="py-4 px-6 font-medium text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Table Row 1 -->
+<tr class="hover:bg-surface-variant/30 transition-colors group">
+<td class="py-6 px-6 font-spec-value text-spec-label text-on-surface-variant">#BK-9021</td>
+<td class="py-6 px-6">
+<div class="font-spec-value text-on-surface">Zain Ahmed</div>
+<div class="text-[12px] text-on-surface-variant font-spec-label">Platinum Lead</div>
+</td>
+<td class="py-6 px-6">
+<div class="text-spec-label font-spec-label text-on-surface">+92 300 4567891</div>
+<div class="text-spec-label font-spec-label text-on-surface-variant">zain.a@example.pk</div>
+</td>
+<td class="py-6 px-6">
+<div class="font-spec-value text-primary">Ducati Panigale V4 R</div>
+<div class="text-[12px] text-on-surface-variant font-spec-label">Track Configuration</div>
+</td>
+<td class="py-6 px-6">
+<div class="font-spec-value text-on-surface">Oct 24, 2024</div>
+<div class="text-[12px] text-on-surface-variant font-spec-label">10:30 AM</div>
+</td>
+<td class="py-6 px-6">
+<select class="bg-background border border-outline-variant text-spec-label font-spec-label py-1 px-3 rounded text-on-surface focus:border-primary ring-0">
+<option value="pending">Pending</option>
+<option selected="" value="confirmed">Confirmed</option>
+<option value="cancelled">Cancelled</option>
+</select>
+</td>
+<td class="py-6 px-6 text-right">
+<button class="p-2 hover:bg-primary/10 text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+<button class="p-2 hover:bg-primary/10 text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row Expansion / Detailed Detail (Active Sample) -->
+<tr class="bg-surface-container-low border-l-4 border-primary">
+<td class="p-0" colspan="7">
+<div class="flex gap-10 p-8">
+<div class="w-64 h-40 bg-background border border-outline-variant overflow-hidden relative group">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A high-performance black and red luxury sport motorcycle parked inside a dark, cinematic studio with dramatic spotlighting. The lighting emphasizes the sleek aerodynamic curves and carbon fiber details of the bike. The atmosphere is aggressive and high-end, reflecting a premium dealership environment with deep shadows and vibrant red highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGHPbIbOlkG5afd4f96MZu5XfvL_FjRO2fk0rdzsCOFuWOj3cL4D8PxlkM0uU73ekC7kXmSo5gJA4bDtXy6USJpY5zQYGbM1vaGvhYlI1Qv8sCLdrVb8bD5H0jePxJjI03LOyNsm1hcBHMfhubwqEpMR24pK_jMLlmQmQF8YCHmcGCf7BLG29YK9GQDVtM-_L0L9hp_FGoJ1zQaCQkEyDXPwy6i2dndjfS2qhSpEb83GSO3YJImckVMw084aqn1Oq_uwms-vH2bZA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+<span class="font-spec-label text-[10px] text-primary uppercase tracking-widest font-bold">In-Stock</span>
+</div>
+</div>
+<div class="flex-grow grid grid-cols-2 gap-8">
+<div>
+<h4 class="font-spec-label text-spec-label text-on-surface-variant uppercase mb-3 border-b border-outline-variant pb-1">Customer Message</h4>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                                                "I'm interested in trade-in options for my current 2021 Monster. Looking to test the V4 R specifically for track ergonomics. Please confirm if racing boots are provided for the session or if I should bring my own gear."
+                                            </p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<h4 class="font-spec-label text-spec-label text-on-surface-variant uppercase mb-1">Source</h4>
+<p class="font-spec-value text-spec-label text-secondary">Instagram Campaign</p>
+</div>
+<div>
+<h4 class="font-spec-label text-spec-label text-on-surface-variant uppercase mb-1">Assigned Rep</h4>
+<p class="font-spec-value text-spec-label text-on-surface">Hamza K.</p>
+</div>
+<div class="col-span-2 pt-4 flex gap-4">
+<button class="bg-primary text-on-primary px-4 py-2 font-spec-label text-[12px] font-bold uppercase tracking-widest hover:brightness-110">Send Direct Email</button>
+<button class="border border-outline-variant text-on-surface px-4 py-2 font-spec-label text-[12px] font-bold uppercase tracking-widest hover:bg-surface-variant">Update CRM</button>
+</div>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<!-- Table Row 2 -->
+<tr class="hover:bg-surface-variant/30 transition-colors group">
+<td class="py-6 px-6 font-spec-value text-spec-label text-on-surface-variant">#BK-9022</td>
+<td class="py-6 px-6">
+<div class="font-spec-value text-on-surface">Sara Khan</div>
+<div class="text-[12px] text-on-surface-variant font-spec-label">New Prospect</div>
+</td>
+<td class="py-6 px-6">
+<div class="text-spec-label font-spec-label text-on-surface">+92 321 9876543</div>
+<div class="text-spec-label font-spec-label text-on-surface-variant">sara.khan@web.com</div>
+</td>
+<td class="py-6 px-6">
+<div class="font-spec-value text-primary">Triumph Tiger 1200</div>
+<div class="text-[12px] text-on-surface-variant font-spec-label">Rally Pro Edition</div>
+</td>
+<td class="py-6 px-6">
+<div class="font-spec-value text-on-surface">Oct 26, 2024</div>
+<div class="text-[12px] text-on-surface-variant font-spec-label">02:00 PM</div>
+</td>
+<td class="py-6 px-6">
+<select class="bg-background border border-outline-variant text-spec-label font-spec-label py-1 px-3 rounded text-secondary border-secondary focus:border-secondary ring-0">
+<option selected="" value="pending">Pending</option>
+<option value="confirmed">Confirmed</option>
+<option value="cancelled">Cancelled</option>
+</select>
+</td>
+<td class="py-6 px-6 text-right">
+<button class="p-2 hover:bg-primary/10 text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+<button class="p-2 hover:bg-primary/10 text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Table Row 3 -->
+<tr class="hover:bg-surface-variant/30 transition-colors group">
+<td class="py-6 px-6 font-spec-value text-spec-label text-on-surface-variant">#BK-8995</td>
+<td class="py-6 px-6">
+<div class="font-spec-value text-on-surface">Omar Malik</div>
+<div class="text-[12px] text-on-surface-variant font-spec-label">Repeat Customer</div>
+</td>
+<td class="py-6 px-6">
+<div class="text-spec-label font-spec-label text-on-surface">+92 333 1234567</div>
+<div class="text-spec-label font-spec-label text-on-surface-variant">omark@domain.pk</div>
+</td>
+<td class="py-6 px-6">
+<div class="font-spec-value text-primary">BMW R 1250 GS</div>
+<div class="text-[12px] text-on-surface-variant font-spec-label">Adventure Black</div>
+</td>
+<td class="py-6 px-6">
+<div class="font-spec-value text-on-surface">Oct 20, 2024</div>
+<div class="text-[12px] text-on-surface-variant font-spec-label">12:00 PM</div>
+</td>
+<td class="py-6 px-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-variant text-on-surface-variant font-spec-label text-[12px] border border-outline-variant">
+<span class="material-symbols-outlined text-[14px]">cancel</span>
+                                    Cancelled
+                                </div>
+</td>
+<td class="py-6 px-6 text-right">
+<button class="p-2 hover:bg-primary/10 text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+<button class="p-2 hover:bg-primary/10 text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="flex justify-between items-center px-6 py-6 border-t border-outline-variant">
+<span class="font-spec-label text-spec-label text-on-surface-variant">Showing 1 to 10 of 1,248 entries</span>
+<div class="flex gap-2">
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant text-on-surface-variant hover:bg-surface-variant transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center bg-primary text-on-primary font-bold">1</button>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant text-on-surface hover:bg-surface-variant transition-all">2</button>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant text-on-surface hover:bg-surface-variant transition-all">3</button>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant text-on-surface-variant hover:bg-surface-variant transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer for context -->
+<footer class="ml-[240px] bg-surface-container-low border-t border-surface-variant py-10 px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto">
+<div class="col-span-2">
+<h4 class="font-headline-md text-[24px] font-black text-primary mb-4">United AutoMotorsports Pakistan</h4>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">Precision engineering meets luxury. The ultimate destination for performance motorcycle enthusiasts in Pakistan.</p>
+</div>
+<div class="flex flex-col gap-2">
+<p class="font-spec-label text-spec-label text-on-surface font-bold mb-2">Internal Links</p>
+<a class="font-spec-label text-spec-label text-on-surface-variant hover:text-primary transition-colors" href="#">Staff Portal</a>
+<a class="font-spec-label text-spec-label text-on-surface-variant hover:text-primary transition-colors" href="#">Inventory Report</a>
+<a class="font-spec-label text-spec-label text-on-surface-variant hover:text-primary transition-colors" href="#">Sales CRM</a>
+</div>
+<div class="flex flex-col gap-4">
+<p class="font-spec-label text-spec-label text-on-surface-variant text-[12px]">© 2024 United AutoMotorsports Pakistan. Built for Precision.</p>
+</div>
+</div>
+</footer>
+</body></html>

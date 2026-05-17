@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&amp;family=JetBrains+Mono:wght@500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glow-red {
+            box-shadow: 0 0 24px rgba(232, 39, 45, 0.35);
+        }
+        .glow-red-hover:hover {
+            box-shadow: 0 0 32px rgba(232, 39, 45, 0.5);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .marquee {
+            display: flex;
+            width: 200%;
+            animation: none; /* Requested no animations */
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#131313",
+                        "on-tertiary-fixed-variant": "#004d66",
+                        "surface-container-low": "#1c1b1b",
+                        "on-surface-variant": "#e6bdb9",
+                        "surface-variant": "#353534",
+                        "primary-fixed": "#ffdad6",
+                        "on-tertiary-container": "#002e3e",
+                        "on-primary": "#680008",
+                        "surface-bright": "#3a3939",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary-container": "#369bc4",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary": "#003547",
+                        "outline": "#ad8884",
+                        "secondary-container": "#785d00",
+                        "surface-dim": "#131313",
+                        "secondary-fixed": "#ffe08f",
+                        "tertiary-fixed": "#c0e8ff",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "tertiary-fixed-dim": "#75d1fd",
+                        "on-tertiary-fixed": "#001e2b",
+                        "error": "#ffb4ab",
+                        "on-secondary-container": "#fdd977",
+                        "surface-container-lowest": "#0e0e0e",
+                        "outline-variant": "#5d3f3c",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#930010",
+                        "surface-container": "#201f1f",
+                        "surface": "#131313",
+                        "on-secondary": "#3d2e00",
+                        "on-secondary-fixed": "#241a00",
+                        "on-primary-fixed": "#410003",
+                        "surface-tint": "#ffb3ac",
+                        "on-error": "#690005",
+                        "on-surface": "#e5e2e1",
+                        "secondary-fixed-dim": "#e6c364",
+                        "inverse-primary": "#c00018",
+                        "primary-container": "#ff544e",
+                        "on-error-container": "#ffdad6",
+                        "inverse-on-surface": "#313030",
+                        "surface-container-high": "#2a2a2a",
+                        "secondary": "#e6c364",
+                        "surface-container-highest": "#353534",
+                        "on-secondary-fixed-variant": "#584400",
+                        "tertiary": "#75d1fd",
+                        "primary": "#ffb3ac",
+                        "on-primary-container": "#5c0006"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "80px",
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "spec-label": ["JetBrains Mono"],
+                        "spec-value": ["JetBrains Mono"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "display-xl": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "spec-label": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "spec-value": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-surface-variant shadow-[0_0_20px_rgba(232,39,45,0.15)]">
+<nav class="flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto">
+<div class="font-headline-lg text-headline-lg font-black text-primary tracking-tighter">United AutoMotorsports</div>
+<div class="hidden md:flex gap-8">
+<a class="font-spec-label text-spec-label text-primary font-bold border-b-2 border-primary pb-1" href="index.html">Home</a>
+<a class="font-spec-label text-spec-label text-on-surface hover:text-primary transition-colors duration-300" href="catalog.html">Catalog</a>
+<a class="font-spec-label text-spec-label text-on-surface hover:text-primary transition-colors duration-300" href="about.html">About</a>
+<a class="font-spec-label text-spec-label text-on-surface hover:text-primary transition-colors duration-300" href="contact.html">Contact</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-on-surface hover:text-primary transition-colors">search</button>
+<button class="hidden lg:block bg-primary-container text-on-primary-container px-6 py-2.5 rounded font-spec-label text-spec-label font-bold hover:scale-105 hover:shadow-[0_0_24px_rgba(232,39,45,0.35)] transition-all active:scale-95 duration-150">
+                    Book a Bike
+                </button>
+</div>
+</nav>
+</header>
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent z-10"></div>
+<img alt="" class="w-full h-full object-cover" data-alt="A dramatic cinematic shot of a high-performance carbon fiber motorcycle parked in a dark, minimalist showroom. Single sharp spotlights create high-contrast highlights on the metallic surfaces and chrome engine components. The atmosphere is aggressive yet luxurious, dominated by deep blacks and cool tones with a sense of raw power and precision engineering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwMngFooRzy5mxB1SdauUtigw1bgBkZbKG7VGmRWyNqoFnwddoIxY_QEGNcFhnYJleXLYJB_PcAA0bU3NG2Rk2NL9pYXHOC3thRauH9a8Pz9RxzftcAFLYAQdkoy9JW6rPGNaCfOd727XvIUx7aPW5RsLvqLAYWaDDqKMwn-HSmmEt4ejFSJKUxRru3aaptdxDQR8x0JXbk624CdzEjUB80lZf385zpRhyqy93_gmlHyEGbbMxY0Vqqh8hz2UJ3ENrvgWTXubvUIY"/>
+</div>
+<div class="relative z-20 text-center px-margin-mobile max-w-4xl">
+<div class="flex justify-center gap-4 mb-8">
+<span class="bg-surface-container-high border border-surface-variant px-4 py-1.5 rounded-full flex items-center gap-2 font-spec-label text-spec-label text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">motorcycle</span> 200+ Bikes
+                </span>
+<span class="bg-surface-container-high border border-surface-variant px-4 py-1.5 rounded-full flex items-center gap-2 font-spec-label text-spec-label text-secondary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">grade</span> 5★ Rated
+                </span>
+</div>
+<h1 class="font-display-xl text-display-xl text-on-surface uppercase mb-6 drop-shadow-2xl">
+                Power Meets <span class="text-primary-container">Precision</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">
+                Discover Pakistan's finest selection of heavy, sport, and replica motorcycles. Engineered for the enthusiasts who demand absolute dominance on the road.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-primary-container text-on-primary-container px-10 py-4 rounded font-bold uppercase tracking-widest glow-red hover:shadow-[0_0_32px_rgba(232,39,45,0.5)] transition-all">
+                    Explore Catalog
+                </button>
+<button class="border border-surface-variant bg-transparent text-on-surface px-10 py-4 rounded font-bold uppercase tracking-widest hover:bg-surface-variant transition-all">
+                    How It Works
+                </button>
+</div>
+</div>
+</section>
+<!-- Stats Banner -->
+<div class="relative z-30 bg-primary-container py-8 overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+<div>
+<div class="font-display-xl text-headline-lg text-on-primary-container">500+</div>
+<div class="font-spec-label text-spec-label uppercase opacity-80 text-on-primary-container">Happy Riders</div>
+</div>
+<div>
+<div class="font-display-xl text-headline-lg text-on-primary-container">12</div>
+<div class="font-spec-label text-spec-label uppercase opacity-80 text-on-primary-container">Premium Brands</div>
+</div>
+<div>
+<div class="font-display-xl text-headline-lg text-on-primary-container">100%</div>
+<div class="font-spec-label text-spec-label uppercase opacity-80 text-on-primary-container">Authenticity</div>
+</div>
+<div>
+<div class="font-display-xl text-headline-lg text-on-primary-container">24/7</div>
+<div class="font-spec-label text-spec-label uppercase opacity-80 text-on-primary-container">Support</div>
+</div>
+</div>
+</div>
+<!-- Categories Section -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Category Card 1 -->
+<div class="group relative h-[400px] rounded-xl overflow-hidden cursor-pointer">
+<img alt="" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Close up of a heavy cruiser motorcycle engine with high-gloss black paint and polished chrome pipes. The lighting is low-key with intense highlights to emphasize the mechanical detail and luxury feel, matching the dark aggressive showroom aesthetic of the website." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS0m9kf9VQlj-XYVIUFOago2SANXOF8LBueJ4nw_Bsoh5flsOB58BDl_t2EqkJUDAorYvh3gGWC2Uort0KJGerBRw16R-SsIdTRmoNIMRjb85js8kKCwtLAhOfcGtcmm1ecr68ITiBsU19g86DX6M5ndQbPOAkoQYU6NJ02ZtbDFNGuj3-9rJZfxRrqvbW7RU5qHlLxOR-Yg1h_QtSDod4peLACpe7WeRmfFMPZZ-HlFIoAuihhXlyy4bWb1XzFgfeVf5huRrQjYU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<h3 class="font-headline-md text-headline-md text-on-surface">Heavy</h3>
+<p class="font-spec-label text-spec-label text-primary">85 Bikes Available</p>
+</div>
+</div>
+<!-- Category Card 2 -->
+<div class="group relative h-[400px] rounded-xl overflow-hidden cursor-pointer border-2 border-primary-container shadow-[0_0_20px_rgba(232,39,45,0.2)]">
+<img alt="" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A sleek racing sport bike leaning into a turn on a track at dusk. The vibrant red bodywork is highlighted by the setting sun, contrasting against the dark asphalt. The image style is cinematic and high-energy, reinforcing the aggressive luxury brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDitOHvRbkPzlQa9cZX_WkBH3DIW5yAHG5rkyxdk3IZellK5mYAwm3ZCqRf_ENO1Oy4PKbKT3fYxjssbj88b4cP5APzAoZqQyzNV2VZQKZwEMNBzNVxIUrNy1mkPTrlEgMCQ-9CXBZ_QdyRIlpsX_KsropFgbA-VB8g1HJLewvv962zZiI_9iSs5B2t0UtHqvBoJK6p_YXmZwfX5EuVX6puopdwUb74Ke0H6t0iBw0TYenXxcii5_sjhTPV8gXPGDB5dyOJM4dsnxw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<h3 class="font-headline-md text-headline-md text-on-surface">Sports</h3>
+<p class="font-spec-label text-spec-label text-primary">120 Bikes Available</p>
+</div>
+</div>
+<!-- Category Card 3 -->
+<div class="group relative h-[400px] rounded-xl overflow-hidden cursor-pointer">
+<img alt="" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A meticulously crafted replica of a classic performance motorcycle, showcasing precision components and vintage styling updated for modern performance. The shot is taken in a professional studio setting with dark, moody lighting that brings out the depth of the red and black color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3uxnTwt1wLeoORwrWOzJcnICkg6dZfb3JUBwP18jHq5VjdZ-4bB1YWAHrY0Oq6PBsXmlTcz0sxP2uB5UsfrI-8-aCvyEcWi6tVkGNSC7mN_HK3lCyelFaClUCQLC-cW0I78Htth33WAEl8qCMMiyEdKKarNIg1nZinCfWH51sEHG3g4mQEJbu0OB8UKwnh2eh2PETMdlzZMfy90LuFsk3OiL1K4r68OMSlUg0KF2M5GRGIuGJO5No_-18sH_VTHz2r4jcxwkscxY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<h3 class="font-headline-md text-headline-md text-on-surface">Replica</h3>
+<p class="font-spec-label text-spec-label text-primary">45 Bikes Available</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Bikes -->
+<section class="py-section-gap bg-surface-container-lowest">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-16">
+<div>
+<span class="font-spec-label text-spec-label text-primary uppercase tracking-widest block mb-4">Precision Machines</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Featured Inventory</h2>
+</div>
+<button class="text-primary font-bold hover:underline underline-offset-8">View All Catalog</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Bike Card 1 -->
+<div class="bg-surface-container-low border border-surface-variant rounded-xl overflow-hidden group hover:translate-y-[-4px] transition-all">
+<div class="h-64 overflow-hidden relative">
+<img alt="" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A close-up profile shot of a modern Ducati Panigale in a deep red finish. The bike is staged in a dark environment with rim lighting that defines its aerodynamic curves and carbon fiber accents. The image represents the pinnacle of sports motorcycle engineering and aggressive luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCskwpdRF5cSb4gces5jXfbtgCG5EpF_otOuszdRYY2uQxwSxIuRfOkhD8CY6PGN0HwuzlYOWr5OIbb8dTtdK9UZ6-75PwyinPSLMyWH_h3BB80W_Lnn9Ceu_7Mluo6s4315lRwxcIAnqYATvbEVBsg_MapEH6tqdkcnjrDzT-76SwIFRyVetgrLTjLP6qOj_oXrmqL3oW_RSDULOhGGKy2IVBf1wW5-qFTg6iSO2gaDapT55QFdAPilMMvPoAVFmit7YKF1nV9vFg"/>
+<div class="absolute top-4 right-4 bg-primary-container text-on-primary-container px-3 py-1 text-xs font-bold rounded">HOT DEAL</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-headline-md text-headline-md mb-1">Panigale V4 S</h4>
+<p class="font-spec-label text-spec-label text-on-surface-variant">2024 • Ducati</p>
+</div>
+<span class="bg-secondary text-on-secondary px-3 py-1 rounded text-xs font-bold">PREMIUM</span>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6 border-y border-surface-variant py-4">
+<div class="flex flex-col">
+<span class="font-spec-label text-spec-label text-on-surface-variant text-[12px]">POWER</span>
+<span class="font-spec-value text-spec-value text-primary">210 HP</span>
+</div>
+<div class="flex flex-col">
+<span class="font-spec-label text-spec-label text-on-surface-variant text-[12px]">ENGINE</span>
+<span class="font-spec-value text-spec-value text-primary">1103 CC</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-display-xl text-headline-md text-on-surface">PKR 7.5M</span>
+<button class="bg-primary-container w-12 h-12 rounded-full flex items-center justify-center text-on-primary-container hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Repeat Bike Cards with variations -->
+<!-- Bike Card 2 -->
+<div class="bg-surface-container-low border border-surface-variant rounded-xl overflow-hidden group hover:translate-y-[-4px] transition-all">
+<div class="h-64 overflow-hidden relative">
+<img alt="" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A black BMW S1000RR parked in an urban underground setting with neon red lighting reflecting off its polished surfaces. The scene is high-contrast and moody, perfectly capturing the high-performance and luxury aesthetic of the motorcycle showroom." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwXAVU8qSCx7soGw2BG4gORomMbBh3HZ4yD-UnJ7pWSldOIh0y9RlyH5Gk8d-Sf6JB8Y2ti5p_VE5tf0xHwPcrpK2I9ssdapa11VI_P_H7aXermbiXUNV_YrarG4wJa4g0qat5vHextdVreutMivvD6kB4_tX8oYnrhxmxqFRanw8QlMW9j4dTNCdlmY8DzKGuvzJMSXaRAv52NtQT_mnHyi8a9LIGFiqN-nZEXLuO_DpbGSM5-GN8vA0V6RKIGqffxiu1NjEh3Mk"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-headline-md text-headline-md mb-1">S 1000 RR</h4>
+<p class="font-spec-label text-spec-label text-on-surface-variant">2023 • BMW Motorrad</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6 border-y border-surface-variant py-4">
+<div class="flex flex-col">
+<span class="font-spec-label text-spec-label text-on-surface-variant text-[12px]">POWER</span>
+<span class="font-spec-value text-spec-value text-primary">205 HP</span>
+</div>
+<div class="flex flex-col">
+<span class="font-spec-label text-spec-label text-on-surface-variant text-[12px]">ENGINE</span>
+<span class="font-spec-value text-spec-value text-primary">999 CC</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-display-xl text-headline-md text-on-surface">PKR 6.8M</span>
+<button class="bg-primary-container w-12 h-12 rounded-full flex items-center justify-center text-on-primary-container hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bike Card 3 -->
+<div class="bg-surface-container-low border border-surface-variant rounded-xl overflow-hidden group hover:translate-y-[-4px] transition-all">
+<div class="h-64 overflow-hidden relative">
+<img alt="" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A Kawasaki Ninja ZX-10R in its signature lime green and black race livery, positioned in a high-tech garage. The lighting is cinematic with deep shadows and bright accents that highlight the sharp aerodynamic edges and technical components of the bike." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGaGdaThRs2-fQxV6m3xvUdf3itMxnR-0j1h1rSWKv4Pvsh92uo48DcKkVcGHjCMR5Y7q6liuR2iiXTEAii5lAU4-owQ0njvUInbgl31fEr9LnygEw0Bk2f9i9fmlryB2O-MtdjJwlP5cpH4hTJ0eNd9lujtBd9DCuL4ha6upXWTK188kptTdSsTuQw5LCbS1JfBi1-VJh4m7BUSzHwWaMm5eJAtmQ_vOqOvwjDrTiv5Oljf8VpHy5-NCi03tTwGvvdJUPITkiAsg"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-headline-md text-headline-md mb-1">ZX-10R</h4>
+<p class="font-spec-label text-spec-label text-on-surface-variant">2024 • Kawasaki</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6 border-y border-surface-variant py-4">
+<div class="flex flex-col">
+<span class="font-spec-label text-spec-label text-on-surface-variant text-[12px]">POWER</span>
+<span class="font-spec-value text-spec-value text-primary">203 HP</span>
+</div>
+<div class="flex flex-col">
+<span class="font-spec-label text-spec-label text-on-surface-variant text-[12px]">ENGINE</span>
+<span class="font-spec-value text-spec-value text-primary">998 CC</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-display-xl text-headline-md text-on-surface">PKR 5.9M</span>
+<button class="bg-primary-container w-12 h-12 rounded-full flex items-center justify-center text-on-primary-container hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Brands Scrolling (Static View) -->
+<section class="py-16 border-y border-surface-variant overflow-hidden">
+<div class="flex justify-around items-center gap-12 opacity-50 px-margin-desktop grayscale hover:grayscale-0 transition-all">
+<span class="font-display-xl text-headline-md font-bold tracking-tighter">YAMAHA</span>
+<span class="font-display-xl text-headline-md font-bold tracking-tighter">HONDA</span>
+<span class="font-display-xl text-headline-md font-bold tracking-tighter">KAWASAKI</span>
+<span class="font-display-xl text-headline-md font-bold tracking-tighter text-primary">DUCATI</span>
+<span class="font-display-xl text-headline-md font-bold tracking-tighter">SUZUKI</span>
+<span class="font-display-xl text-headline-md font-bold tracking-tighter">BMW</span>
+</div>
+</section>
+<!-- How It Works Section -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto text-center">
+<span class="font-spec-label text-spec-label text-primary uppercase tracking-widest block mb-4">Simple Journey</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-20">How It Works</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16 relative">
+<!-- Step 1 -->
+<div class="flex flex-col items-center">
+<div class="w-24 h-24 rounded-full bg-primary-container flex items-center justify-center mb-8 relative glow-red">
+<span class="material-symbols-outlined text-4xl text-on-primary-container">search_spark</span>
+<div class="absolute -top-2 -right-2 w-10 h-10 bg-background border-2 border-primary rounded-full flex items-center justify-center font-bold">01</div>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 uppercase tracking-tight">Browse</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px]">Explore our elite collection of high-performance motorcycles from around the globe.</p>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center">
+<div class="w-24 h-24 rounded-full bg-primary-container flex items-center justify-center mb-8 relative glow-red">
+<span class="material-symbols-outlined text-4xl text-on-primary-container">calendar_month</span>
+<div class="absolute -top-2 -right-2 w-10 h-10 bg-background border-2 border-primary rounded-full flex items-center justify-center font-bold">02</div>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 uppercase tracking-tight">Book</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px]">Schedule a private viewing or test ride at our premium showroom facility.</p>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center">
+<div class="w-24 h-24 rounded-full bg-primary-container flex items-center justify-center mb-8 relative glow-red">
+<span class="material-symbols-outlined text-4xl text-on-primary-container">sports_motorsports</span>
+<div class="absolute -top-2 -right-2 w-10 h-10 bg-background border-2 border-primary rounded-full flex items-center justify-center font-bold">03</div>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 uppercase tracking-tight">Ride</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px]">Complete the seamless paperwork and hit the road with your new precision machine.</p>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-section-gap bg-surface-container">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Trusted by Enthusiasts</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Testimonial Card -->
+<div class="p-10 bg-surface-container-low border border-surface-variant rounded-xl">
+<div class="flex text-secondary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-lg text-on-surface mb-8 italic">"The acquisition process was as precise as the bike itself. MotoShowroom delivers a level of professionalism unmatched in Pakistan's heavy bike market."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center font-bold">AJ</div>
+<div>
+<div class="font-bold">Ahmed J.</div>
+<div class="text-sm text-on-surface-variant">Karachi, PK</div>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="p-10 bg-surface-container-low border border-surface-variant rounded-xl">
+<div class="flex text-secondary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-lg text-on-surface mb-8 italic">"Their replica collection is museum-quality. I found exactly what I was looking for, and the technical breakdown they provided was incredibly detailed."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center font-bold">SM</div>
+<div>
+<div class="font-bold">Saad M.</div>
+<div class="text-sm text-on-surface-variant">Lahore, PK</div>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="p-10 bg-surface-container-low border border-surface-variant rounded-xl">
+<div class="flex text-secondary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-lg text-on-surface mb-8 italic">"Five-star service from start to finish. The showroom environment feels more like a private lounge than a dealership. Highly recommended for serious collectors."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center font-bold">RK</div>
+<div>
+<div class="font-bold">Rohan K.</div>
+<div class="text-sm text-on-surface-variant">Islamabad, PK</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="py-section-gap px-margin-desktop text-center relative overflow-hidden">
+<div class="max-w-4xl mx-auto border-2 border-primary-container rounded-3xl p-20 glow-red">
+<h2 class="font-display-xl text-headline-lg text-on-surface mb-6 uppercase">Ready to Experience the Ride?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-xl mx-auto">Join the elite community of riders who refuse to compromise on quality and performance.</p>
+<div class="flex justify-center">
+<button class="bg-primary-container text-on-primary-container px-12 py-5 rounded-full font-bold uppercase tracking-widest text-lg hover:scale-110 transition-transform shadow-[0_0_40px_rgba(232,39,45,0.4)]">
+                    Book Your Session Now
+                </button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-surface-variant w-full py-section-gap px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="font-headline-lg text-headline-lg font-black text-primary mb-6">MotoShowroom</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Precision engineering for the Pakistani enthusiast. High-performance motorcycles, curated for excellence.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">social_leaderboard</span>
+<span class="material-symbols-outlined text-primary">camera</span>
+<span class="material-symbols-outlined text-primary">play_circle</span>
+</div>
+</div>
+<div>
+<h5 class="font-spec-label text-spec-label text-on-surface uppercase font-bold mb-8">Inventory</h5>
+<ul class="space-y-4">
+<li><a class="font-spec-label text-spec-label text-on-surface-variant hover:text-primary transition-colors" href="#">Cruisers</a></li>
+<li><a class="font-spec-label text-spec-label text-on-surface-variant hover:text-primary transition-colors" href="#">Sport</a></li>
+<li><a class="font-spec-label text-spec-label text-on-surface-variant hover:text-primary transition-colors" href="#">Adventure</a></li>
+<li><a class="font-spec-label text-spec-label text-on-surface-variant hover:text-primary transition-colors" href="#">Touring</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-spec-label text-spec-label text-on-surface uppercase font-bold mb-8">Quick Links</h5>
+<ul class="space-y-4">
+<li><a class="font-spec-label text-spec-label text-on-surface-variant hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="font-spec-label text-spec-label text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a></li>
+<li><a class="font-spec-label text-spec-label text-on-surface-variant hover:text-primary transition-colors" href="#">Newsletter</a></li>
+<li><a class="font-spec-label text-spec-label text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-spec-label text-spec-label text-on-surface uppercase font-bold mb-8">Newsletter</h5>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Stay updated on our latest arrivals.</p>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-surface-variant rounded px-4 py-3 text-on-surface focus:border-primary outline-none transition-all" placeholder="Email Address" type="email"/>
+<button class="absolute right-2 top-2 p-1 text-primary">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto mt-20 pt-8 border-t border-surface-variant flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="font-spec-label text-spec-label text-on-surface-variant">© 2024 MotoShowroom Pakistan. Built for Precision.</span>
+<div class="flex gap-8 font-spec-label text-spec-label text-on-surface-variant">
+<span>Terms of Service</span>
+<span>Cookie Policy</span>
+</div>
+</div>
+</footer>
+</body></html>

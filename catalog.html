@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "background": "#131313",
+                  "on-tertiary-fixed-variant": "#004d66",
+                  "surface-container-low": "#1c1b1b",
+                  "on-surface-variant": "#e6bdb9",
+                  "surface-variant": "#353534",
+                  "primary-fixed": "#ffdad6",
+                  "on-tertiary-container": "#002e3e",
+                  "on-primary": "#680008",
+                  "surface-bright": "#3a3939",
+                  "inverse-surface": "#e5e2e1",
+                  "tertiary-container": "#369bc4",
+                  "on-background": "#e5e2e1",
+                  "on-tertiary": "#003547",
+                  "outline": "#ad8884",
+                  "secondary-container": "#785d00",
+                  "surface-dim": "#131313",
+                  "secondary-fixed": "#ffe08f",
+                  "tertiary-fixed": "#c0e8ff",
+                  "primary-fixed-dim": "#ffb3ac",
+                  "tertiary-fixed-dim": "#75d1fd",
+                  "on-tertiary-fixed": "#001e2b",
+                  "error": "#ffb4ab",
+                  "on-secondary-container": "#fdd977",
+                  "surface-container-lowest": "#0e0e0e",
+                  "outline-variant": "#5d3f3c",
+                  "error-container": "#93000a",
+                  "on-primary-fixed-variant": "#930010",
+                  "surface-container": "#201f1f",
+                  "surface": "#131313",
+                  "on-secondary": "#3d2e00",
+                  "on-secondary-fixed": "#241a00",
+                  "on-primary-fixed": "#410003",
+                  "surface-tint": "#ffb3ac",
+                  "on-error": "#690005",
+                  "on-surface": "#e5e2e1",
+                  "secondary-fixed-dim": "#e6c364",
+                  "inverse-primary": "#c00018",
+                  "primary-container": "#ff544e",
+                  "on-error-container": "#ffdad6",
+                  "inverse-on-surface": "#313030",
+                  "surface-container-high": "#2a2a2a",
+                  "secondary": "#e6c364",
+                  "surface-container-highest": "#353534",
+                  "on-secondary-fixed-variant": "#584400",
+                  "tertiary": "#75d1fd",
+                  "primary": "#ffb3ac",
+                  "on-primary-container": "#5c0006"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "margin-mobile": "20px",
+                  "margin-desktop": "80px",
+                  "section-gap": "120px",
+                  "gutter": "24px",
+                  "container-max": "1440px"
+          },
+          "fontFamily": {
+                  "headline-md": ["Inter"],
+                  "headline-lg": ["Inter"],
+                  "display-xl": ["Inter"],
+                  "headline-lg-mobile": ["Inter"],
+                  "body-md": ["Inter"],
+                  "spec-label": ["JetBrains Mono"],
+                  "spec-value": ["JetBrains Mono"],
+                  "body-lg": ["Inter"]
+          },
+          "fontSize": {
+                  "headline-md": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                  "display-xl": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                  "headline-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                  "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "spec-label": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                  "spec-value": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                  "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #0e0e0e; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #353534; border-radius: 2px; }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- Top Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl shadow-[0_0_20px_rgba(232,39,45,0.15)] border-b border-surface-variant">
+<div class="flex justify-between items-center h-20 px-margin-desktop max-w-container-max mx-auto">
+<div class="font-headline-lg text-headline-lg font-black text-primary tracking-tighter">United AutoMotorsports</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface hover:text-primary transition-colors duration-300 font-spec-label text-spec-label" href="index.html">Home</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-spec-label text-spec-label" href="catalog.html">Catalog</a>
+<a class="text-on-surface hover:text-primary transition-colors duration-300 font-spec-label text-spec-label" href="about.html">About</a>
+<a class="text-on-surface hover:text-primary transition-colors duration-300 font-spec-label text-spec-label" href="contact.html">Contact</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container-lowest border border-outline-variant rounded-full px-4 py-2">
+<span class="material-symbols-outlined text-outline mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md w-48 placeholder:text-outline-variant" placeholder="Search models..." type="text"/>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-3 rounded-lg font-bold hover:scale-105 hover:shadow-[0_0_24px_rgba(232,39,45,0.35)] transition-all active:scale-95 duration-150">
+          Book a Bike
+        </button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative h-[280px] w-full flex items-center justify-center overflow-hidden pt-20">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover brightness-50" data-alt="A cinematic close-up of a high-performance motorcycle engine in a dark, moody showroom. The lighting is aggressive and high-contrast, with sharp red spotlights reflecting off polished chrome and carbon fiber surfaces. The deep black background emphasizes the precision engineering and luxury of the machine, creating a visceral sense of speed and raw power." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1zLnnHIGUM35CN3DPD9ncx5bvBu4gfmS_0TccQByOw4mJOtqCtLHKVzYFEiuwB4gZIUrEDVhekvO6MxBtQfngIIc8yW0cg93bnH0mS4juUc5AeBLnf54BJUDrCXLbpVEDgarcGSapK3qGpkGgeGlLd_KjxFXfX9FaSzLYOI-6XltlrG9WNoklQfC5QVkj3W3z11VfnfpccPZc_vZVcQUqrK_ZMStLEsvSxXhqismK1FY6GxjUFzjDYOJtw5VOFXxqXQeOcTvbcLw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+</div>
+<div class="relative z-10 text-center">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Our Motorcycle Collection</h1>
+<p class="font-spec-label text-spec-label text-primary mt-2 uppercase tracking-[0.2em]">108 High-Precision Machines Available</p>
+</div>
+</header>
+<!-- Main Content Layout -->
+<main class="max-w-container-max mx-auto px-margin-desktop py-12 flex gap-gutter">
+<!-- Sidebar Filters -->
+<aside class="hidden md:block w-[280px] flex-shrink-0">
+<div class="sticky top-32 space-y-8">
+<div>
+<h3 class="font-spec-label text-spec-label text-outline uppercase mb-4">Filters</h3>
+<div class="space-y-6">
+<!-- Category -->
+<div class="space-y-3">
+<label class="font-spec-label text-spec-label text-on-surface-variant block">Category</label>
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-3 text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all">
+<option>All Categories</option>
+<option>Super Sport</option>
+<option>Cruiser</option>
+<option>Adventure</option>
+<option>Cafe Racer</option>
+</select>
+</div>
+<!-- Brand -->
+<div class="space-y-3">
+<label class="font-spec-label text-spec-label text-on-surface-variant block">Brand</label>
+<div class="grid grid-cols-1 gap-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-body-md group-hover:text-primary transition-colors">Ducati</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-body-md group-hover:text-primary transition-colors">BMW Motorrad</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-body-md group-hover:text-primary transition-colors">Triumph</span>
+</label>
+</div>
+</div>
+<!-- Engine CC slider -->
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<label class="font-spec-label text-spec-label text-on-surface-variant block">Engine Displacement</label>
+<span class="font-spec-value text-[14px] text-primary">1200cc+</span>
+</div>
+<input class="w-full h-1 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-primary" type="range"/>
+<div class="flex justify-between text-[12px] text-outline font-spec-label">
+<span>250cc</span>
+<span>2500cc</span>
+</div>
+</div>
+<!-- Price Range -->
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<label class="font-spec-label text-spec-label text-on-surface-variant block">Price Range (PKR)</label>
+</div>
+<div class="flex gap-2 items-center">
+<div class="flex-1 bg-surface-container-lowest border border-outline-variant rounded p-2 text-[12px] font-spec-value">0</div>
+<div class="w-2 h-[1px] bg-outline-variant"></div>
+<div class="flex-1 bg-surface-container-lowest border border-outline-variant rounded p-2 text-[12px] font-spec-value">20,00,000</div>
+</div>
+<input class="w-full h-1 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-primary" type="range"/>
+</div>
+<!-- Availability Toggle -->
+<div class="flex justify-between items-center p-3 bg-surface-container-low rounded-lg border border-outline-variant">
+<span class="font-spec-label text-spec-label">In Stock Only</span>
+<button class="w-10 h-5 bg-primary rounded-full relative">
+<span class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full"></span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<section class="flex-1">
+<!-- Top Bar -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+<div class="flex flex-wrap items-center gap-3">
+<span class="text-outline font-spec-label text-[14px]">Showing 12 of 108 Results</span>
+<div class="h-4 w-[1px] bg-surface-variant hidden md:block"></div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-variant text-[12px] py-1 px-3 rounded-full flex items-center gap-2 font-spec-label">
+              Ducati <span class="material-symbols-outlined text-[14px] cursor-pointer">close</span>
+</span>
+<span class="bg-surface-variant text-[12px] py-1 px-3 rounded-full flex items-center gap-2 font-spec-label">
+              In Stock <span class="material-symbols-outlined text-[14px] cursor-pointer">close</span>
+</span>
+</div>
+</div>
+<div class="flex items-center gap-4 w-full md:w-auto">
+<div class="flex bg-surface-container-lowest border border-outline-variant rounded-lg p-1">
+<button class="p-2 bg-primary text-on-primary rounded">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+<button class="p-2 text-outline-variant hover:text-on-surface">
+<span class="material-symbols-outlined">list</span>
+</button>
+</div>
+<select class="bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-2 text-body-md focus:border-primary outline-none">
+<option>Sort by: Newest First</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+<option>Power: High to Low</option>
+</select>
+</div>
+</div>
+<!-- Results Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-gutter">
+<!-- Bike Card 1 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden group hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(232,39,45,0.1)] transition-all duration-300">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A side view of a matte black Ducati Panigale V4 superbike. The motorcycle is positioned in a professional studio setting with dramatic side lighting that creates a deep sense of cinematic depth. Subtle red glows reflect off the rims, emphasizing the aggressive motion and luxury engineering of the bike against a dark, structured background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy0wDAzxYnJYxE6gmjGhVHfDXohiiVRKghjYy2B-gPao7VaTlzZaZp48we7w-yDMvtJHk74K7WXKS6rOHA-MVCi-TXcQxYDC641MoLNNq8KCJQo7rNNvPzqgbs3SmVcCjbM12yYwQg7GK98UsSP5XCzoh59UPOLTflodv-oBpjmFOQFvNKiXl6aANEqpKivJarEk658MxXY4dwmNt2tfq1asx-yQW9lvnZbYxsrsF0rywBDIKmptxr5qpXTgFUSMm_IuKNkoILHVw"/>
+<div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">New Arrival</div>
+<div class="absolute top-4 right-4 bg-background/60 backdrop-blur px-2 py-1 rounded">
+<span class="material-symbols-outlined text-white text-[18px]">favorite</span>
+</div>
+</div>
+<div class="p-5 space-y-4">
+<div>
+<h4 class="font-spec-label text-[14px] text-primary uppercase tracking-wider">Ducati</h4>
+<h3 class="font-headline-md text-[24px] text-on-surface leading-tight">Panigale V4 S</h3>
+</div>
+<div class="grid grid-cols-2 gap-4 border-t border-b border-outline-variant py-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[18px]">electric_bolt</span>
+<span class="font-spec-value text-[14px]">214 HP</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[18px]">speed</span>
+<span class="font-spec-value text-[14px]">1,103 cc</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-headline-md text-[20px] text-on-surface">PKR 7,500,000</span>
+<a href="bike-detail.html">
+  <button class="bg-surface-variant hover:bg-primary text-white p-2 rounded-lg transition-colors">
+    <span class="material-symbols-outlined">arrow_forward</span>
+  </button>
+</a>
+</div>
+</div>
+</article>
+<!-- Bike Card 2 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden group hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(232,39,45,0.1)] transition-all duration-300">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A BMW S1000RR motorcycle captured in a low-light environment, with sharp spotlights highlighting the precision-cut edges of its fairings. The color palette consists of metallic silvers and deep carbon fiber blacks, with luminous red accents provided by the tail light. The mood is high-performance and sophisticated, suggesting mechanical accuracy and premium quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCc-f0UXXASNOREJBx2j6Jrgm2u9gSCoTTHdUyD3rKxUmaFipddoVooyciFtBUibXI9GjmCF-Bc1BBZ9yy8AXK4d4ZctCMFoqD-e8nbWsrtw2iqX5VU3NX5yahdHoo58L2ZlrXs6Vcy31SQiBXO-o3db_wnPifjjM1W3VSr7Gw8zTnkuaB5597TqROWErRd5rDndPRnxtn_2SsvQ4yw5Wg-5NzqNzIRTkEyRLBRoKLoCQfylb4lMQCiOK-jgGw5ezCGccye_rX3zk"/>
+<div class="absolute top-4 left-4 bg-secondary text-black text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Certified Pre-Owned</div>
+</div>
+<div class="p-5 space-y-4">
+<div>
+<h4 class="font-spec-label text-[14px] text-primary uppercase tracking-wider">BMW Motorrad</h4>
+<h3 class="font-headline-md text-[24px] text-on-surface leading-tight">S 1000 RR</h3>
+</div>
+<div class="grid grid-cols-2 gap-4 border-t border-b border-outline-variant py-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[18px]">electric_bolt</span>
+<span class="font-spec-value text-[14px]">205 HP</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[18px]">speed</span>
+<span class="font-spec-value text-[14px]">999 cc</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-headline-md text-[20px] text-on-surface">PKR 6,200,000</span>
+<button class="bg-surface-variant hover:bg-primary text-white p-2 rounded-lg transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Bike Card 3 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden group hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(232,39,45,0.1)] transition-all duration-300">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A close-up view of a Triumph Rocket 3 motorcycle in a luxurious, dark showroom. The massive engine block is the focus, illuminated by subtle red light emission that creates a sense of aggressive motion. The high-contrast modernism style is evident in the sharp transitions between deep shadows and bright metallic highlights, evoking a feeling of raw power and precision engineering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGF9tifmJ4u68HBYhMLzrfMvNLUuE3nOXtQkkY3F29TlGAg16k9QqZgLPEr_ARISDNJCA5d_7Z6l3EXTre2moO9Lkj_aab7oHJ7YsCY4-HjQButRCQ_kvTvQGUXzhPJqmIZ0Ux4P1sNNQFYVkikuWtz3A5dX2OCT8bRExk_CXUttZePXkTrAoz0L3E0kbOnHthugqQj5Y05COJ5ORNBWNRoaBJ06FuGxNpJvNSn3BK-BreC2mMJKFoGAg6QxwHtxLwD_96lftrLwM"/>
+</div>
+<div class="p-5 space-y-4">
+<div>
+<h4 class="font-spec-label text-[14px] text-primary uppercase tracking-wider">Triumph</h4>
+<h3 class="font-headline-md text-[24px] text-on-surface leading-tight">Rocket 3 GT</h3>
+</div>
+<div class="grid grid-cols-2 gap-4 border-t border-b border-outline-variant py-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[18px]">electric_bolt</span>
+<span class="font-spec-value text-[14px]">165 HP</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[18px]">speed</span>
+<span class="font-spec-value text-[14px]">2,458 cc</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-headline-md text-[20px] text-on-surface">PKR 8,900,000</span>
+<button class="bg-surface-variant hover:bg-primary text-white p-2 rounded-lg transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Row 2 Card 1 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden group hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(232,39,45,0.1)] transition-all duration-300">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A custom cruiser motorcycle showcased in a cinematic studio environment. The dark aesthetic is punctuated by high-key lighting that emphasizes the polished chrome and leather details. The overall visual style is aggressive luxury, utilizing a structured grid and large vertical gaps to give the high-end product photography room to breathe, suggesting an upscale and professional atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxoUb2enmqPg6vbue6g5cxnZyobEV2y38KkvQgDcYmkzSVff5-OOGfxRHbbb2OM1sbXBN1St0Gise_7KEDCQP8ahV3fJdxqs-isK1N-kLbouvffJIjgg9JGLzdCM5wSAeSt8gVXTWt1uFmGM5M5t97wlcv012sJkA9dv2upaFvFfetb9q-wm3njktM9Lqm1ZgYE5HGixtuHo2CumNXkQkU_w5nnuoLowPss3c1U9vpTPuxN7jqx8wj45CHQeg8HZubWcj-FCJh9LQ"/>
+</div>
+<div class="p-5 space-y-4">
+<div>
+<h4 class="font-spec-label text-[14px] text-primary uppercase tracking-wider">Harley-Davidson</h4>
+<h3 class="font-headline-md text-[24px] text-on-surface leading-tight">Fat Boy 114</h3>
+</div>
+<div class="grid grid-cols-2 gap-4 border-t border-b border-outline-variant py-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[18px]">electric_bolt</span>
+<span class="font-spec-value text-[14px]">94 HP</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[18px]">speed</span>
+<span class="font-spec-value text-[14px]">1,868 cc</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-headline-md text-[20px] text-on-surface">PKR 5,800,000</span>
+<button class="bg-surface-variant hover:bg-primary text-white p-2 rounded-lg transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Row 2 Card 2 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden group hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(232,39,45,0.1)] transition-all duration-300">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A futuristic electric motorcycle presented in a minimalist gallery setting. The lighting is cold and clinical, with vibrant red neon accents creating a high-contrast modernism look. The machine's streamlined, aerodynamic shape suggests speed and precision engineering, while the near-black background provides a cinematic depth that makes the luminous primary red stand out." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-z-PWpkpmwbrFScUSTS3N8QXmUoinXX79AwzY2FdkdF0_XHWgU8Fkab9Lv1NtNGhj5K_LyS8jtTlMKO0xZiIoQGeOFL-bIqTivgkB3HyF6Quwm8cUqk3mZDJ6PdavuVXLHd4IfzBdghxY83mRW9Y2VKS4ilMneFXitPRckCyTKq0H8Obmls3KlskZMBXCQk29tT5baJONr6qT3ZQT-zrOUnYBMA4HQeH_VLG31zbdO9MTHoxAGXabmmyNuAV-ZjBHVvy1zwwLK5w"/>
+</div>
+<div class="p-5 space-y-4">
+<div>
+<h4 class="font-spec-label text-[14px] text-primary uppercase tracking-wider">Kawasaki</h4>
+<h3 class="font-headline-md text-[24px] text-on-surface leading-tight">Ninja H2R</h3>
+</div>
+<div class="grid grid-cols-2 gap-4 border-t border-b border-outline-variant py-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[18px]">electric_bolt</span>
+<span class="font-spec-value text-[14px]">310 HP</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[18px]">speed</span>
+<span class="font-spec-value text-[14px]">998 cc</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-headline-md text-[20px] text-on-surface">PKR 12,000,000</span>
+<button class="bg-surface-variant hover:bg-primary text-white p-2 rounded-lg transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Row 2 Card 3 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden group hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(232,39,45,0.1)] transition-all duration-300">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-performance sport bike leaning into a corner at sunset, with light rays catching the dust and chrome surfaces. The setting is dramatic and cinematic, with high-contrast lighting that emphasizes the aggressive motion of the motorcycle. The primary colors are deep black and vibrant red, reflecting the premium engineering and visceral experience of high-end machinery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDSOPAnK5OE21k7u3YcMwY74dP70in91aOxUOzm6JW8cUPNE7WBWG__TCX-2ZzBH7VaACMuVARp9VMFL2dQlMavpsdGzyUnUSUgIoKHQhUs4xSdsXP_XEs6c2cS3D9xWBaTgaqkl6WI8KlGDPKm7q7TcQYPYG20cZnS1pmC4xBRqAFoSa1Jm0y9H1b_RqdwZPHfQF2scJ23zsF21nhddj5xSEd4X2bPkoPNOJ7m8PqjD1k5m10mYC-JnoxkxHC1gyHgdBRWKVJTd4"/>
+<div class="absolute top-4 left-4 bg-error text-on-error text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Out of Stock</div>
+</div>
+<div class="p-5 space-y-4 opacity-75 grayscale-[0.5]">
+<div>
+<h4 class="font-spec-label text-[14px] text-primary uppercase tracking-wider">Yamaha</h4>
+<h3 class="font-headline-md text-[24px] text-on-surface leading-tight">YZF-R1M</h3>
+</div>
+<div class="grid grid-cols-2 gap-4 border-t border-b border-outline-variant py-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[18px]">electric_bolt</span>
+<span class="font-spec-value text-[14px]">200 HP</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[18px]">speed</span>
+<span class="font-spec-value text-[14px]">998 cc</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-headline-md text-[20px] text-on-surface">PKR 5,400,000</span>
+<button class="bg-surface-variant cursor-not-allowed text-white p-2 rounded-lg">
+<span class="material-symbols-outlined">lock</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination -->
+<nav class="mt-16 flex justify-center items-center gap-2">
+<button class="w-12 h-12 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface hover:border-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-lg bg-primary text-on-primary font-bold">1</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface hover:border-primary hover:text-primary transition-all font-bold">2</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface hover:border-primary hover:text-primary transition-all font-bold">3</button>
+<span class="px-2 text-outline">...</span>
+<button class="w-12 h-12 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface hover:border-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</nav>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-surface-container-low border-t border-surface-variant py-section-gap px-margin-desktop w-full">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto">
+<div class="space-y-6">
+<div class="font-headline-lg text-headline-lg font-black text-primary">MotoShowroom</div>
+<p class="font-body-md text-on-surface-variant max-w-xs">Pakistan's premier destination for luxury high-performance motorcycles. Built for precision engineering enthusiasts.</p>
+</div>
+<div class="space-y-4">
+<h4 class="font-spec-label text-spec-label text-on-surface uppercase tracking-widest">Categories</h4>
+<ul class="space-y-2">
+<li><a class="font-spec-label text-spec-label text-on-surface-variant hover:text-primary transition-colors" href="#">Cruisers</a></li>
+<li><a class="font-spec-label text-spec-label text-on-surface-variant hover:text-primary transition-colors" href="#">Sport</a></li>
+<li><a class="font-spec-label text-spec-label text-on-surface-variant hover:text-primary transition-colors" href="#">Adventure</a></li>
+<li><a class="font-spec-label text-spec-label text-on-surface-variant hover:text-primary transition-colors" href="#">Touring</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-spec-label text-spec-label text-on-surface uppercase tracking-widest">Company</h4>
+<ul class="space-y-2">
+<li><a class="font-spec-label text-spec-label text-on-surface-variant hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="font-spec-label text-spec-label text-on-surface-variant hover:text-primary transition-colors" href="#">Showroom Locations</a></li>
+<li><a class="font-spec-label text-spec-label text-on-surface-variant hover:text-primary transition-colors" href="#">Service Center</a></li>
+<li><a class="font-spec-label text-spec-label text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-spec-label text-spec-label text-on-surface uppercase tracking-widest">Newsletter</h4>
+<p class="font-body-md text-on-surface-variant">Stay updated with the latest arrivals.</p>
+<div class="flex gap-2">
+<input class="flex-1 bg-surface-container-lowest border border-outline-variant rounded p-3 text-body-md outline-none focus:border-primary" placeholder="Email Address" type="email"/>
+<button class="bg-primary text-white p-3 rounded hover:shadow-[0_0_20px_rgba(232,39,45,0.3)] transition-all">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto mt-20 pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4 text-on-surface-variant font-spec-label text-[12px]">
+<p>© 2024 MotoShowroom Pakistan. Built for Precision.</p>
+<div class="flex gap-8">
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+<!-- Mobile Bottom Nav -->
+<div class="md:hidden fixed bottom-0 left-0 w-full bg-background/95 backdrop-blur-xl border-t border-surface-variant z-50 flex justify-around items-center h-20 px-4">
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-spec-label uppercase">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">motorcycle</span>
+<span class="text-[10px] font-spec-label uppercase font-bold">Catalog</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-[10px] font-spec-label uppercase">Saved</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-spec-label uppercase">Profile</span>
+</a>
+</div>
+</body></html>
