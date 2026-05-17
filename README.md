@@ -1,7 +1,5 @@
 # MotoShowroom Frontend
 
-This is a static frontend project built from the existing `stitch_motoshowroom_premium_motorcycle_dealership_platform` workspace.
-
 ## Pages
 - `index.html` — Home
 - `catalog.html` — Bike catalog
